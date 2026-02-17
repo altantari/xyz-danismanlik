@@ -121,7 +121,19 @@ export function WhatWeDo() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {professionalServices.map((service, index) => {
               const Icon = service.icon
-              const isLastAlone = index === professionalServices.length - 1 && professionalServices.length % 4 === 1
+              const total = professionalServices.length
+              const isLast = index === total - 1
+              // Remainder for each breakpoint: mobile=2cols, tablet=3cols, desktop=4cols
+              const remMobile = total % 2  // 17%2=1 → alone on mobile
+              const remTablet = total % 3  // 17%3=2 → not alone
+              const remDesktop = total % 4 // 17%4=1 → alone on desktop
+              const lastClasses = isLast
+                ? [
+                    remMobile === 1 ? 'col-span-2' : '',
+                    remTablet === 1 ? 'sm:col-span-3' : remTablet === 2 ? 'sm:col-start-2 sm:col-span-1' : '',
+                    remDesktop === 1 ? 'lg:col-start-2 lg:col-span-2' : remDesktop === 2 ? 'lg:col-start-2 lg:col-span-1' : remDesktop === 3 ? 'lg:col-start-1 lg:col-span-1' : '',
+                  ].filter(Boolean).join(' ')
+                : ''
               return (
                 <motion.div
                   key={service.name}
@@ -129,7 +141,7 @@ export function WhatWeDo() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.03 }}
-                  className={`flex items-center gap-3 p-3 bg-card/50 border border-border/50 rounded-lg ${isLastAlone ? 'col-start-2 lg:col-start-2 lg:col-span-2 justify-center' : ''}`}
+                  className={`flex items-center justify-center gap-3 p-3 bg-card/50 border border-border/50 rounded-lg ${lastClasses}`}
                 >
                   <div className="shrink-0 w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
                     <Icon className="w-4 h-4 text-primary" />
