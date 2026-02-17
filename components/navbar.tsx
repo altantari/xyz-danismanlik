@@ -47,7 +47,7 @@ export function Navbar() {
                 className="font-heading font-bold text-base sm:text-lg text-foreground"
                 style={{ letterSpacing: "-0.05em" }}
               >
-                XYZ Tech
+                BBM Tech
               </span>
             </Link>
 

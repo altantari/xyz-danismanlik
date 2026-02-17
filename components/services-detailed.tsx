@@ -313,7 +313,7 @@ Veri merkezinin konumu ve yapısal özellikleri, siber güvenlik kadar kritiktir
     id: "blockchain",
     icon: Layers,
     title: "Blockchain Çözümleri : Güven ve Şeffaflık Mimarlığı",
-    description: `XYZ-Tech olarak, merkeziyetsiz teknolojileri işletmenizin veri güvenliği ve izlenebilirlik ihtiyaçlarının merkezine yerleştiriyoruz. Verinin değiştirilemezliğini ve süreçlerin şeffaflığını garanti altına alan blockchain çözümlerimizle; tedarik zinciri takibinden smart kontratlara (zeki sözleşmeler), dijital kimlik yönetiminden güvenli veri paylaşım ekosistemlerine kadar uçtan uca güvenli yapılar inşa ediyoruz.
+    description: `BBM-Tech olarak, merkeziyetsiz teknolojileri işletmenizin veri güvenliği ve izlenebilirlik ihtiyaçlarının merkezine yerleştiriyoruz. Verinin değiştirilemezliğini ve süreçlerin şeffaflığını garanti altına alan blockchain çözümlerimizle; tedarik zinciri takibinden smart kontratlara (zeki sözleşmeler), dijital kimlik yönetiminden güvenli veri paylaşım ekosistemlerine kadar uçtan uca güvenli yapılar inşa ediyoruz.
 
 Standart platformlara bağımlı kalmadan, iş süreçlerinize ve yönetişim ihtiyaçlarınıza göre tasarlanan anahtar teslim özel blockchain ve mutabakat (custom consensus) altyapıları ile, karmaşık operasyonel ağlarınızda "Single Source of Truth" prensibini kriptografik olarak güvence altına alıyor; kurumlar arası iş birliğini sürdürülebilir bir dijital güven protokolüne dönüştürüyoruz.`,
   },

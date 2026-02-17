@@ -1,6 +1,6 @@
 BT Süreç Yönetiminde Mühendislik Yaklaşımı: Operasyonel Mükemmeliyet
 
-XYZ-Tech olarak, BT süreçlerini sadece reaktif sorun çözme mekanizmaları olmaktan çıkarıp, işletmenizin dijital operasyonlarının kalbinde yer alan proaktif bir mühendislik disiplinine dönüştürüyoruz. ITIL ve diğer global standartları temel alarak, Hizmet Masası'ndan Olay Yönetimi'ne, Problem Yönetimi'nden Değişim Yönetimi'ne kadar tüm BT süreçlerini otomatize, ölçülebilir ve öngörülebilir hale getiriyoruz. Geliştirdiğimiz merkezi BT yönetim platformları sayesinde, altyapıdan uygulamalara kadar tüm teknoloji yığınınızda kesintisiz hizmet kalitesi ve operasyonel çeviklik sağlıyor, böylece iş birimlerinizin dijital ihtiyaçlarına anında ve stratejik bir yanıt veriyoruz.
+BBM-Tech olarak, BT süreçlerini sadece reaktif sorun çözme mekanizmaları olmaktan çıkarıp, işletmenizin dijital operasyonlarının kalbinde yer alan proaktif bir mühendislik disiplinine dönüştürüyoruz. ITIL ve diğer global standartları temel alarak, Hizmet Masası'ndan Olay Yönetimi'ne, Problem Yönetimi'nden Değişim Yönetimi'ne kadar tüm BT süreçlerini otomatize, ölçülebilir ve öngörülebilir hale getiriyoruz. Geliştirdiğimiz merkezi BT yönetim platformları sayesinde, altyapıdan uygulamalara kadar tüm teknoloji yığınınızda kesintisiz hizmet kalitesi ve operasyonel çeviklik sağlıyor, böylece iş birimlerinizin dijital ihtiyaçlarına anında ve stratejik bir yanıt veriyoruz.
 
 İlk 6 madde kayan özellikte (Eteration daki gibi)
 • Teknoloji ve Dijital Çözüm Ortağınız
@@ -14,7 +14,7 @@ Aşağıdaki ilk sayfa
 Neler Yapıyoruz ?
 Taeknoloji ve Dijital Dönüşümünde Ortağınız
 Biz, sahadaki herbir operasyondan yönetim kurulundaki en kritik rapora kadar kesintisiz, güvenli ve
-akıllı bir Teknoloji Ekosistemi inşa ediyoruz. XYZ-Tech ile dijital dönüşüm, bir risk değil;
+akıllı bir Teknoloji Ekosistemi inşa ediyoruz. BBM-Tech ile dijital dönüşüm, bir risk değil;
 ölçülebilir bir başarı hikayesidir.
 Harekete Geçelim: Çözümlerimizden hangisi şu an kurumunuzun en öncelikli darboğazını
 çözebilir? İsterseniz bu başlıkları içeren bir Yol Haritası Çalıştayı planlayabiliriz.
@@ -240,6 +240,6 @@ entegrasyonu.
 panellerinden takip edilmesi.
 
 Blockchain Çözümleri : Güven ve Şeffaflık Mimarlığı
-XYZ-Tech olarak, merkeziyetsiz teknolojileri işletmenizin veri güvenliği ve izlenebilirlik ihtiyaçlarının merkezine yerleştiriyoruz. Verinin değiştirilemezliğini ve süreçlerin şeffaflığını garanti altına alan blockchain çözümlerimizle; tedarik zinciri takibinden smart kontratlara (zeki sözleşmeler), dijital kimlik yönetiminden güvenli veri paylaşım ekosistemlerine kadar uçtan uca güvenli yapılar inşa ediyoruz.
+BBM-Tech olarak, merkeziyetsiz teknolojileri işletmenizin veri güvenliği ve izlenebilirlik ihtiyaçlarının merkezine yerleştiriyoruz. Verinin değiştirilemezliğini ve süreçlerin şeffaflığını garanti altına alan blockchain çözümlerimizle; tedarik zinciri takibinden smart kontratlara (zeki sözleşmeler), dijital kimlik yönetiminden güvenli veri paylaşım ekosistemlerine kadar uçtan uca güvenli yapılar inşa ediyoruz.
 
 Standart platformlara bağımlı kalmadan, iş süreçlerinize ve yönetişim ihtiyaçlarınıza göre tasarlanan anahtar teslim özel blockchain ve mutabakat (custom consensus) altyapıları ile, karmaşık operasyonel ağlarınızda “Single Source of Truth” prensibini kriptografik olarak güvence altına alıyor; kurumlar arası iş birliğini sürdürülebilir bir dijital güven protokolüne dönüştürüyoruz.

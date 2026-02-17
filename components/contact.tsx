@@ -76,7 +76,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium text-foreground mb-1 group-hover:text-primary transition-colors">E-posta</h4>
-                  <p className="text-muted-foreground group-hover:text-foreground transition-colors">info@xyz-tech.com.tr</p>
+                  <p className="text-muted-foreground group-hover:text-foreground transition-colors">info@bbm-tech.com.tr</p>
                 </div>
               </motion.div>
 

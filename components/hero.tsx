@@ -8,14 +8,23 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
 import { Spotlight } from "@/components/ui/spotlight-new"
 
 const services = [
-  "Size Özel Stratejik ERP Çözümleri",
-  "Veri ve Yapay Zeka Çözümleri",
-  "Size Özel Yazılım Çözümleri",
-  "BI ve Dashboard Çözümleri",
-  "Blockchain Çözümleri",
+  "Yazılım Geliştirme Hizmetleri",
+  "Stratejik ERP Çözümleri Geliştirme",
+  "Özel Yazılım Çözümleri Geliştirme",
+  "Mobil Yazılım Çözümleri Geliştirme",
+  "Büyük Veri ve Analitik Çözümleri",
+  "Veri Çözümleri",
+  "Yapay Zeka Çözümleri",
+  "BI Dashboard Çözümleri",
   "Danışmanlık Hizmetleri",
+  "Siber Güvenlik",
   "Bilgi Güvenliği",
-  "Siber Güvenlik"
+  "BT Yönetim",
+  "İş Sürekliliği",
+  "Süreç Yönetimi",
+  "Altyapı Kurulum ve Yönetimi",
+  "Outsource Destek",
+  "Veri Merkezi Kurulumu ve Yönetimi",
 ]
 
 export function Hero() {
@@ -103,7 +112,7 @@ export function Hero() {
               akıllı bir <span className="text-foreground font-medium">Teknoloji Ekosistemi</span> inşa ediyoruz.
             </p>
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground text-pretty leading-relaxed">
-              XYZ-Tech ile dijital dönüşüm, bir risk değil; <span className="text-primary font-semibold">ölçülebilir bir başarı hikayesidir</span>.
+              BBM-Tech ile dijital dönüşüm, bir risk değil; <span className="text-primary font-semibold">ölçülebilir bir başarı hikayesidir</span>.
             </p>
           </motion.div>
 

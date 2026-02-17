@@ -19,44 +19,9 @@ export function Footer() {
   return (
     <footer className="relative border-t border-border">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-8">
-          {/* Link columns */}
-          <div className="grid grid-cols-2 gap-12 sm:gap-16 lg:gap-24 order-first">
-            {Object.entries(footerLinks).map(([category, links]) => (
-              <div key={category}>
-                <h4 className="text-xs font-medium tracking-wider uppercase text-muted-foreground mb-3 sm:mb-4">
-                  {category}
-                </h4>
-                <ul className="space-y-2">
-                  {links.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          {/* Logo and motto - centered on mobile, far right on desktop */}
-          <div className="text-center sm:text-right order-last sm:order-last">
-            <Link href="/" className="flex items-center gap-3 mb-2 justify-center sm:justify-end">
-              <Zap className="w-8 h-8 text-primary" />
-              <span className="font-heading text-xl font-bold text-foreground" style={{ letterSpacing: "-0.05em" }}>
-                XYZ Tech
-              </span>
-            </Link>
-          </div>
-        </div>
-
-        <div className="mt-8 sm:mt-12 pt-4 sm:pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[10px] sm:text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} XYZ Tech. Tüm hakları saklıdır.
+            &copy; 2025 BBM Tech. Tüm hakları saklıdır.
           </p>
           <div className="flex items-center gap-4">
             <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">

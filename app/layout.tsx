@@ -11,7 +11,7 @@ const geist = Geist({
 })
 
 export const metadata: Metadata = {
-  title: "XYZ Tech - BT Danışmanlık ve Yazılım Çözümleri",
+  title: "BBM Tech - BT Danışmanlık ve Yazılım Çözümleri",
   description:
     "Kurumsal BT danışmanlık, yazılım geliştirme, siber güvenlik ve yapay zeka çözümleri. Dijital dönüşümde güvenilir çözüm ortağınız.",
   generator: "v0.app",

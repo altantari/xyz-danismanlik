@@ -17,7 +17,8 @@ import {
   Phone,
   Landmark,
   ShieldCheck,
-  Truck
+  Truck,
+  Building2
 } from "lucide-react"
 import { LampHeader } from "./ui/lamp"
 import { HoverBorderGradient } from "./ui/hover-border-gradient"
@@ -46,6 +47,7 @@ const professionalServices = [
   { name: "Süreç Yönetimi", icon: Workflow },
   { name: "Altyapı Kurulum ve Yönetimi", icon: HardDrive },
   { name: "Outsource Destek", icon: Settings },
+  { name: "Veri Merkezi Kurulumu ve Yönetimi", icon: Building2 },
 ]
 
 export function WhatWeDo() {
@@ -97,7 +99,7 @@ export function WhatWeDo() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              XYZ-Tech olarak, BT süreçlerini sadece reaktif sorun çözme mekanizmaları olmaktan çıkarıp, işletmenizin dijital operasyonlarının kalbinde yer alan proaktif bir mühendislik disiplinine dönüştürüyoruz.
+              BBM-Tech olarak, BT süreçlerini sadece reaktif sorun çözme mekanizmaları olmaktan çıkarıp, işletmenizin dijital operasyonlarının kalbinde yer alan proaktif bir mühendislik disiplinine dönüştürüyoruz.
             </p>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               ITIL ve diğer global standartları temel alarak, Hizmet Masası'ndan Olay Yönetimi'ne, Problem Yönetimi'nden Değişim Yönetimi'ne kadar tüm BT süreçlerini otomatize, ölçülebilir ve öngörülebilir hale getiriyoruz.
@@ -119,6 +121,7 @@ export function WhatWeDo() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {professionalServices.map((service, index) => {
               const Icon = service.icon
+              const isLastAlone = index === professionalServices.length - 1 && professionalServices.length % 4 === 1
               return (
                 <motion.div
                   key={service.name}
@@ -126,7 +129,7 @@ export function WhatWeDo() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.03 }}
-                  className="flex items-center gap-3 p-3 bg-card/50 border border-border/50 rounded-lg"
+                  className={`flex items-center gap-3 p-3 bg-card/50 border border-border/50 rounded-lg ${isLastAlone ? 'col-start-2 lg:col-start-2 lg:col-span-2 justify-center' : ''}`}
                 >
                   <div className="shrink-0 w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
                     <Icon className="w-4 h-4 text-primary" />
