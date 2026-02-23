@@ -3,15 +3,16 @@
 import React from "react"
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ArrowRight, Zap } from "lucide-react"
+import { Menu, X, ArrowRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "@/lib/language-context"
 import { LanguageSwitcher } from "@/components/language-switcher"
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const navLinks = [
     { href: "#neler-yapiyoruz", label: t("nav.whatWeDo") },
@@ -44,14 +45,15 @@ export function Navbar() {
         >
           {/* Main Header Row */}
           <div className="flex h-14 items-center justify-between px-4 sm:px-6">
-            <Link href="/" className="flex items-center gap-2" aria-label="Ana sayfa">
-              <Zap className="w-5 sm:w-6 h-5 sm:h-6 text-primary" aria-hidden="true" />
-              <span
-                className="font-heading font-bold text-base sm:text-lg text-foreground"
-                style={{ letterSpacing: "-0.05em" }}
-              >
-                BBM Tech
-              </span>
+            <Link href="/" className="flex items-center" aria-label={t("nav.home")}>
+              <Image
+                src={language === "tr" ? "/logo-orange.svg" : "/logo-green.svg"}
+                alt="BBM Tech"
+                width={180}
+                height={46}
+                className="h-10 sm:h-12 w-auto"
+                priority
+              />
             </Link>
 
             {/* Desktop Navigation */}
