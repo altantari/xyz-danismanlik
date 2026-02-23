@@ -85,15 +85,17 @@ export function Navbar() {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              type="button"
-              className="lg:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? t("nav.menuClose") : t("nav.menuOpen")}
-              aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-menu"
-            >
+            {/* Mobile: Language + Menu Button */}
+            <div className="flex lg:hidden items-center gap-2">
+              <LanguageSwitcher />
+              <button
+                type="button"
+                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? t("nav.menuClose") : t("nav.menuOpen")}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-menu"
+              >
               <AnimatePresence mode="wait" initial={false}>
                 {mobileMenuOpen ? (
                   <motion.div
@@ -117,7 +119,8 @@ export function Navbar() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </button>
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu - Expands from header */}
@@ -144,9 +147,6 @@ export function Navbar() {
                   transition={{ duration: 0.2, delay: 0.1 }}
                   className="border-t border-border/30 px-4 pb-4 pt-2"
                 >
-                  <div className="flex items-center justify-end py-2">
-                    <LanguageSwitcher />
-                  </div>
                   <div className="flex flex-col gap-1">
                     {navLinks.map((link, index) => (
                       <motion.a
