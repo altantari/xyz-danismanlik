@@ -6,15 +6,18 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ArrowRight, Zap } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-
-const navLinks = [
-  { href: "#neler-yapiyoruz", label: "Neler Yapıyoruz" },
-  { href: "#hizmetler", label: "Hizmetler" },
-  { href: "#iletisim", label: "İletişim" },
-]
+import { useLanguage } from "@/lib/language-context"
+import { LanguageSwitcher } from "@/components/language-switcher"
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { t } = useLanguage()
+
+  const navLinks = [
+    { href: "#neler-yapiyoruz", label: t("nav.whatWeDo") },
+    { href: "#hizmetler", label: t("nav.services") },
+    { href: "#iletisim", label: t("nav.contact") },
+  ]
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("#")) {
@@ -67,6 +70,7 @@ export function Navbar() {
 
             {/* Desktop Buttons */}
             <div className="hidden lg:flex items-center gap-3">
+              <LanguageSwitcher />
               <Button
                 size="sm"
                 rounded="full"
@@ -76,7 +80,7 @@ export function Navbar() {
                   if (element) element.scrollIntoView({ behavior: "smooth" })
                 }}
               >
-                Bize Ulaşın
+                {t("nav.contactUs")}
                 <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
               </Button>
             </div>
@@ -86,7 +90,7 @@ export function Navbar() {
               type="button"
               className="lg:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
+              aria-label={mobileMenuOpen ? t("nav.menuClose") : t("nav.menuOpen")}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
             >
@@ -131,7 +135,7 @@ export function Navbar() {
                 className="lg:hidden overflow-hidden"
                 role="dialog"
                 aria-modal="true"
-                aria-label="Mobil navigasyon menüsü"
+                aria-label={t("nav.mobileMenuLabel")}
               >
                 <motion.div
                   initial={{ y: -10 }}
@@ -140,6 +144,9 @@ export function Navbar() {
                   transition={{ duration: 0.2, delay: 0.1 }}
                   className="border-t border-border/30 px-4 pb-4 pt-2"
                 >
+                  <div className="flex items-center justify-end py-2">
+                    <LanguageSwitcher />
+                  </div>
                   <div className="flex flex-col gap-1">
                     {navLinks.map((link, index) => (
                       <motion.a
@@ -178,7 +185,7 @@ export function Navbar() {
                         }, 200)
                       }}
                     >
-                      Bize Ulaşın
+                      {t("nav.contactUs")}
                       <ArrowRight className="w-4 h-4" aria-hidden="true" />
                     </Button>
                   </motion.div>

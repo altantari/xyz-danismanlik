@@ -22,36 +22,41 @@ import {
 } from "lucide-react"
 import { LampHeader } from "./ui/lamp"
 import { HoverBorderGradient } from "./ui/hover-border-gradient"
+import { useLanguage } from "@/lib/language-context"
 
-const sectors = [
-  { name: "Telekomunikasyon", icon: Phone },
-  { name: "Bankacılık", icon: Landmark },
-  { name: "Sigorta", icon: ShieldCheck },
-  { name: "Lojistik", icon: Truck },
+const sectorKeys = [
+  { key: "whatWeDo.sector.telecom", icon: Phone },
+  { key: "whatWeDo.sector.banking", icon: Landmark },
+  { key: "whatWeDo.sector.insurance", icon: ShieldCheck },
+  { key: "whatWeDo.sector.logistics", icon: Truck },
 ]
 
-const professionalServices = [
-  { name: "Yazılım Geliştirme Hizmetleri", icon: Code2 },
-  { name: "Stratejik ERP Çözümleri Geliştirme", icon: Server },
-  { name: "Özel Yazılım Çözümleri Geliştirme", icon: Code2 },
-  { name: "Mobil Yazılım Çözümleri Geliştirme", icon: Smartphone },
-  { name: "Büyük Veri ve Analitik Çözümleri", icon: Database },
-  { name: "Veri Çözümleri", icon: Database },
-  { name: "Yapay Zeka Çözümleri", icon: Brain },
-  { name: "BI Dashboard Çözümleri", icon: BarChart3 },
-  { name: "Danışmanlık Hizmetleri", icon: Settings },
-  { name: "Siber Güvenlik", icon: Shield },
-  { name: "Bilgi Güvenliği", icon: Lock },
-  { name: "BT Yönetim", icon: Settings },
-  { name: "İş Sürekliliği", icon: Workflow },
-  { name: "Süreç Yönetimi", icon: Workflow },
-  { name: "Altyapı Kurulum ve Yönetimi", icon: HardDrive },
-  { name: "Outsource Destek", icon: Settings },
-  { name: "Veri Merkezi Kurulumu ve Yönetimi", icon: Building2 },
+const serviceKeys = [
+  { key: "whatWeDo.ps.softwareDev", icon: Code2 },
+  { key: "whatWeDo.ps.erp", icon: Server },
+  { key: "whatWeDo.ps.customSoftware", icon: Code2 },
+  { key: "whatWeDo.ps.mobileSoftware", icon: Smartphone },
+  { key: "whatWeDo.ps.bigData", icon: Database },
+  { key: "whatWeDo.ps.dataSolutions", icon: Database },
+  { key: "whatWeDo.ps.ai", icon: Brain },
+  { key: "whatWeDo.ps.biDashboard", icon: BarChart3 },
+  { key: "whatWeDo.ps.consulting", icon: Settings },
+  { key: "whatWeDo.ps.cyberSecurity", icon: Shield },
+  { key: "whatWeDo.ps.infoSecurity", icon: Lock },
+  { key: "whatWeDo.ps.itManagement", icon: Settings },
+  { key: "whatWeDo.ps.businessContinuity", icon: Workflow },
+  { key: "whatWeDo.ps.processManagement", icon: Workflow },
+  { key: "whatWeDo.ps.infrastructure", icon: HardDrive },
+  { key: "whatWeDo.ps.outsource", icon: Settings },
+  { key: "whatWeDo.ps.dataCenter", icon: Building2 },
 ]
 
 export function WhatWeDo() {
   const shouldReduceMotion = useReducedMotion()
+  const { t } = useLanguage()
+
+  const professionalServices = serviceKeys.map((s) => ({ name: t(s.key), icon: s.icon }))
+  const sectors = sectorKeys.map((s) => ({ name: t(s.key), icon: s.icon }))
 
   return (
     <section id="neler-yapiyoruz" className="bg-background relative py-28 sm:py-32">
@@ -67,7 +72,7 @@ export function WhatWeDo() {
           }}
           className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-display text-balance mb-4 text-center"
         >
-          <span className="text-gradient-lime">Neler Yapıyoruz?</span>
+          <span className="text-gradient-lime">{t("whatWeDo.title")}</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -76,7 +81,7 @@ export function WhatWeDo() {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center"
         >
-          Teknoloji ve Dijital Dönüşümünde Ortağınız
+          {t("whatWeDo.subtitle")}
         </motion.p>
       </LampHeader>
 
@@ -91,21 +96,21 @@ export function WhatWeDo() {
         >
           <div className="mb-6 text-center">
             <h3 className="text-base sm:text-lg font-light text-foreground/40 mb-2">
-              BT Süreç Yönetiminde Mühendislik Yaklaşımı:
+              {t("whatWeDo.itProcessTitle1")}
             </h3>
             <h4 className="text-2xl sm:text-3xl font-semibold text-foreground">
-              Operasyonel Mükemmeliyet
+              {t("whatWeDo.itProcessTitle2")}
             </h4>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              BBM-Tech olarak, BT süreçlerini sadece reaktif sorun çözme mekanizmaları olmaktan çıkarıp, işletmenizin dijital operasyonlarının kalbinde yer alan proaktif bir mühendislik disiplinine dönüştürüyoruz.
+              {t("whatWeDo.itProcessDesc1")}
             </p>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              ITIL ve diğer global standartları temel alarak, Hizmet Masası'ndan Olay Yönetimi'ne, Problem Yönetimi'nden Değişim Yönetimi'ne kadar tüm BT süreçlerini otomatize, ölçülebilir ve öngörülebilir hale getiriyoruz.
+              {t("whatWeDo.itProcessDesc2")}
             </p>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Geliştirdiğimiz merkezi BT yönetim platformları sayesinde, altyapıdan uygulamalara kadar tüm teknoloji yığınınızda kesintisiz hizmet kalitesi ve operasyonel çeviklik sağlıyor, böylece iş birimlerinizin dijital ihtiyaçlarına anında ve stratejik bir yanıt veriyoruz.
+              {t("whatWeDo.itProcessDesc3")}
             </p>
           </div>
         </motion.div>
@@ -167,7 +172,7 @@ export function WhatWeDo() {
             className="space-y-4"
           >
             <h3 className="text-sm font-medium text-muted-foreground/60 uppercase tracking-wider">
-              Sektörler
+              {t("whatWeDo.sectors")}
             </h3>
             <div className="grid grid-cols-2 gap-4">
               {sectors.map((sector, index) => {
@@ -203,13 +208,13 @@ export function WhatWeDo() {
             className="bg-linear-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 rounded-2xl p-6 sm:p-8 flex flex-col justify-center"
           >
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-              Harekete Geçelim
+              {t("whatWeDo.ctaTitle")}
             </h3>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4">
-              Çözümlerimizden hangisi şu an kurumunuzun en öncelikli darboğazını çözebilir?
+              {t("whatWeDo.ctaDesc1")}
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              İsterseniz bu başlıkları içeren bir <span className="text-primary font-medium">Yol Haritası Çalıştayı</span> planlayabiliriz.
+              {t("whatWeDo.ctaDesc2Start")} <span className="text-primary font-medium">{t("whatWeDo.ctaDesc2Bold")}</span> {t("whatWeDo.ctaDesc2End")}
             </p>
             <HoverBorderGradient
               containerClassName="w-full sm:w-auto"
@@ -219,7 +224,7 @@ export function WhatWeDo() {
                 if (element) element.scrollIntoView({ behavior: "smooth" })
               }}
             >
-              Ücretsiz Danışmanlık Alın
+              {t("whatWeDo.ctaButton")}
               <ArrowRight className="w-4 h-4" />
             </HoverBorderGradient>
           </motion.div>

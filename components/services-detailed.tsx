@@ -30,11 +30,13 @@ import {
 } from "lucide-react"
 import { LampHeader } from "./ui/lamp"
 import { GlowingEffect } from "./ui/glowing-effect"
+import { useLanguage } from "@/lib/language-context"
 
 const professionalServices = [
   {
     id: "erp",
     icon: Server,
+    titleKey: "sd.erp.title",
     title: "Stratejik ERP Çözümleri Geliştirme",
     description: `Kurumsal kaynak planlamayı sadece bir kayıt sistemi değil, operasyonel hız kazandıran bir "iş zekası motoru" olarak konumlandırıyoruz. Uçtan Uca Entegrasyonu önemseyerek Saha Operasyonları, Finans, Satın Alma, Depo, Üretim ve İK süreçlerinin tam uyumunu sağlıyoruz.
 
@@ -43,6 +45,7 @@ Müşteri gereksinimleri doğrultusunda çözümümüz de On-Prem, Mobil veya Cl
   {
     id: "field-ops",
     icon: MapPin,
+    titleKey: "sd.fieldOps.title",
     title: "Operasyon ve Saha Yönetimi",
     description: `Saha operasyonlarını kağıt formlardan ve manuel veri girişinden kurtarıp; anlık, izlenebilir ve doğrulanabilir bir dijital sürece dönüştürüyoruz. Amacımız, merkezdeki karar vericiler ile sahadaki uygulayıcılar arasında tek bir veri doğrusu oluşturmaktır.
 
@@ -55,12 +58,14 @@ Sahadaki her bir ekipman, yedek parça ve sarf malzemenin yaşam döngüsünü E
   {
     id: "predictive-maintenance",
     icon: Activity,
+    titleKey: "sd.predictive.title",
     title: "Tahminleyici Bakım, Kestirimci Bakım İş Emirleri, Arıza Erken Uyarı Sistemi",
     description: `Tahminleyici Bakım, Kestirimci Bakım İş Emirleri, Arıza Erken Uyarı Sistemi`,
   },
   {
     id: "asset-visualization",
     icon: Map,
+    titleKey: "sd.assetViz.title",
     title: "Varlık Envanterinin Harita Üzerinde Görselleştirilmesi",
     description: `Sadece "neyin" ve "ne zaman" yapıldığını değil, "nerede" olduğunu ve "çevresel koşulların" etkisini de yönetiyoruz. Harita altlığı, tüm IT/OT ve ERP verilerinin üzerine bindiği ana görsel düzlemdir.
 
@@ -69,6 +74,7 @@ Tüm varlıklar (Assets), ERP'deki teknik özellikleriyle birlikte harita üzeri
   {
     id: "field-team-tracking",
     icon: Route,
+    titleKey: "sd.fieldTeam.title",
     title: "Dinamik Saha Ekibi İzleme ve Rota Optimizasyonu",
     description: `Saha ekiplerinin ERP iş emirleri, coğrafi verilerle harmanlanarak en verimli şekilde yönetilir. Personel ve araç lokasyonlarının anlık takibi. Bir arıza bildirimi (Ticket) oluştuğunda, ERP sisteminin coğrafi olarak en yakın ve yetkin ekibi parametrelere bağlı olarak otomatik olarak ataması. Rota Planlama; Trafik durumu, yol kısıtlamaları ve iş önceliğine göre optimize edilmiş sürüş rotalarıyla yakıt ve zaman tasarrufu.
 
@@ -79,6 +85,7 @@ BI Ürünümüzle Executive Dashboard sunuyoruz.`,
   {
     id: "custom-software",
     icon: Zap,
+    titleKey: "sd.customSoftware.title",
     title: "Özel Yazılım Geliştirme Çözümleri",
     description: `Standart paketlerin yetmediği durumlarda, işinize tam uyum sağlayan, yüksek performanslı ve güvenli yazılım mimarileri dikkate alarak inşa ediyoruz.
 
@@ -91,6 +98,7 @@ Modülerlik: İster sadece bir ERP modülü, ister tüm veri altyapısının dö
   {
     id: "data-solutions",
     icon: Database,
+    titleKey: "sd.dataSolutions.title",
     title: "Veri Çözümleri",
     description: `Yapay zekanın başarısı, verinin kalitesine ve erişilebilirliğine bağlıdır. Biz veriyi sadece depolamıyor, bir "Veri Üretim Hattı" kuruyoruz.
 
@@ -105,6 +113,7 @@ Modülerlik: İster sadece bir ERP modülü, ister tüm veri altyapısının dö
   {
     id: "ai-ml",
     icon: Brain,
+    titleKey: "sd.aiMl.title",
     title: "Yapay Zeka (AI) ve Makine Öğrenmesi (ML) Çözümleri",
     description: `Veriden sadece "ne oldu?" sorusunun değil, "ne olacak?" ve "ne yapmalıyım?" sorularının cevabını alıyoruz.
 
@@ -119,6 +128,7 @@ Modülerlik: İster sadece bir ERP modülü, ister tüm veri altyapısının dö
   {
     id: "bi-dashboard",
     icon: BarChart3,
+    titleKey: "sd.biDashboard.title",
     title: "Dashboard ve İş Zekası (BI) Çözümleri",
     description: `Bu katman, verinin "hikayeleştirildiği" ve karar vericinin eyleme geçmesini sağlayan vitrindir.
 
@@ -136,12 +146,14 @@ const consultingServices = [
   {
     id: "info-security",
     icon: Lock,
+    titleKey: "sd.infoSecurity.title",
     title: "Bilgi Güvenliği",
     description: `Bilgi Güvenliği : Ağ Güvenliği, Bulut (Cloud) Güvenliği,Uygulama Güvenliği, Güvenlik Yönetimi, Olay Yönetimi, Problem Yönetimi`,
   },
   {
     id: "cybersecurity",
     icon: Shield,
+    titleKey: "sd.cyberSecurity.title",
     title: "Kritik Altyapılar için Entegre Siber Güvenlik",
     description: `Amacımız; güvenliği operasyonlara ek bir yük haline getirmeden, ölçülebilir ve doğrulanabilir hale getirmektir.
 
@@ -182,6 +194,7 @@ OT/ICS ortamlarında güvenlik, üretim süreçlerini etkilemeden ve endüstriye
   {
     id: "itsm",
     icon: Settings,
+    titleKey: "sd.itsm.title",
     title: "BT Hizmet Yönetimi (ITSM)",
     description: `BT Hizmet Yönetimi (ITSM)
 • Service Desk & Incident Management
@@ -191,6 +204,7 @@ OT/ICS ortamlarında güvenlik, üretim süreçlerini etkilemeden ve endüstriye
   {
     id: "infrastructure",
     icon: HardDrive,
+    titleKey: "sd.infra.title",
     title: "Altyapı Yönetimi",
     description: `Altyapı Yönetimi
 • Hibrit Bulut Stratejisi: Kritik verilerin (OT/ICS) yerinde (On-Premise) tutulması, Bulut stratejisinin kurum/şirket politikalarına uygun ölçeklenmesi.
@@ -200,6 +214,7 @@ OT/ICS ortamlarında güvenlik, üretim süreçlerini etkilemeden ve endüstriye
   {
     id: "itam-cmdb",
     icon: FileText,
+    titleKey: "sd.itamCmdb.title",
     title: "Varlık ve Konfigürasyon Yönetimi (ITAM & CMDB)",
     description: `Varlık ve Konfigürasyon Yönetimi (ITAM & CMDB)
 
@@ -210,6 +225,7 @@ Hangi cihazın nerede olduğunu, kimin kullandığını ve diğer hangi sistemle
   {
     id: "noc",
     icon: Network,
+    titleKey: "sd.noc.title",
     title: "Ağ ve Performans İzleme (NOC - Network Operations Center)",
     description: `Ağ ve Performans İzleme (NOC - Network Operations Center)
 
@@ -220,6 +236,7 @@ Hangi cihazın nerede olduğunu, kimin kullandığını ve diğer hangi sistemle
   {
     id: "business-continuity",
     icon: Lock,
+    titleKey: "sd.businessCont.title",
     title: "İş Sürekliliği",
     description: `İş Sürekliliği
 
@@ -228,6 +245,7 @@ Stratejimiz; ISO 22301 standartlarını temel alarak, teknik kurtarma (DR) ile y
   {
     id: "bia",
     icon: BarChart3,
+    titleKey: "sd.bia.title",
     title: "İş Etki Analizi (BIA) ve Kritiklik Seviyeleri",
     description: `İş Etki Analizi (BIA) ve Kritiklik Seviyeleri
 
@@ -238,6 +256,7 @@ Her sistemin duruş maliyeti aynı değildir. Önce sistemleri iş önceliğine 
   {
     id: "disaster-recovery",
     icon: AlertTriangle,
+    titleKey: "sd.disasterRecovery.title",
     title: "Felaket Kurtarma (Disaster Recovery - DR) Mimarisi",
     description: `Felaket Kurtarma (Disaster Recovery - DR) Mimarisi
 • Coğrafi Yedeklilik (Geo-Redundancy)
@@ -247,6 +266,7 @@ Her sistemin duruş maliyeti aynı değildir. Önce sistemleri iş önceliğine 
   {
     id: "alt-operations",
     icon: Settings,
+    titleKey: "sd.altOps.title",
     title: "Operasyonel ve Sahada Süreklilik (Alternative Operations)",
     description: `Operasyonel ve Sahada Süreklilik (Alternative Operations)
 
@@ -257,6 +277,7 @@ Teknoloji tamamen erişilemez olduğunda işin sahada nasıl devam edeceğinin p
   {
     id: "crisis-management",
     icon: AlertTriangle,
+    titleKey: "sd.crisis.title",
     title: "Kriz Yönetimi ve Playbooklar",
     description: `Kriz Yönetimi ve Playbooklar
 
@@ -267,6 +288,7 @@ Karar vericilerin panik anında hata yapmasını engelleyen standart operasyon p
   {
     id: "datacenter",
     icon: Cloud,
+    titleKey: "sd.dataCenter.title",
     title: "Kritik Altyapı Veri Merkezi (Data Center) Tasarım ve Kurulumu",
     description: `Kritik Altyapı Veri Merkezi (Data Center) Tasarım ve Kurulumu
 
@@ -275,6 +297,7 @@ Tasarım felsefemiz, TIA-942 ve Uptime Institute Tier III/IV standartlarını te
   {
     id: "physical-security",
     icon: Building2,
+    titleKey: "sd.physicalSecurity.title",
     title: "Fiziksel ve Mimari Güvenlik (Structural Layer)",
     description: `Fiziksel ve Mimari Güvenlik (Structural Layer)
 
@@ -286,6 +309,7 @@ Veri merkezinin konumu ve yapısal özellikleri, siber güvenlik kadar kritiktir
   {
     id: "mep",
     icon: Thermometer,
+    titleKey: "sd.mep.title",
     title: "Enerji ve İklimlendirme Altyapısı (Mechanical & Electrical)",
     description: `Enerji ve İklimlendirme Altyapısı (Mechanical & Electrical)
 • Kesintisiz Enerji (UPS & Jeneratör)
@@ -295,6 +319,7 @@ Veri merkezinin konumu ve yapısal özellikleri, siber güvenlik kadar kritiktir
   {
     id: "connectivity",
     icon: Cable,
+    titleKey: "sd.connectivity.title",
     title: "Ağ Bağlantısı ve Yapısal Kablolama (Connectivity Layer)",
     description: `Ağ Bağlantısı ve Yapısal Kablolama (Connectivity Layer)
 • Birden fazla telekom operatöründen gelen yedekli fiber optik hatlar (F/O Meet-me Room).
@@ -304,6 +329,7 @@ Veri merkezinin konumu ve yapısal özellikleri, siber güvenlik kadar kritiktir
   {
     id: "dcim",
     icon: MonitorCheck,
+    titleKey: "sd.dcim.title",
     title: "Veri Merkezi Altyapı Yönetimi (DCIM)",
     description: `Veri Merkezi Altyapı Yönetimi (DCIM)
 • Nem, sıcaklık, su baskını ve kapı sensörlerinin harita altlığı ve GRC katmanıyla entegrasyonu.
@@ -312,6 +338,7 @@ Veri merkezinin konumu ve yapısal özellikleri, siber güvenlik kadar kritiktir
   {
     id: "blockchain",
     icon: Layers,
+    titleKey: "sd.blockchain.title",
     title: "Blockchain Çözümleri : Güven ve Şeffaflık Mimarlığı",
     description: `BBM-Tech olarak, merkeziyetsiz teknolojileri işletmenizin veri güvenliği ve izlenebilirlik ihtiyaçlarının merkezine yerleştiriyoruz. Verinin değiştirilemezliğini ve süreçlerin şeffaflığını garanti altına alan blockchain çözümlerimizle; tedarik zinciri takibinden smart kontratlara (zeki sözleşmeler), dijital kimlik yönetiminden güvenli veri paylaşım ekosistemlerine kadar uçtan uca güvenli yapılar inşa ediyoruz.
 
@@ -332,7 +359,9 @@ function ServiceCard({
 }) {
   const shouldReduceMotion = useReducedMotion()
   const [isHovered, setIsHovered] = useState(false)
+  const { t } = useLanguage()
   const Icon = service.icon
+  const displayTitle = service.titleKey ? t(service.titleKey) : service.title
 
   const truncateText = (text: string, maxLength: number = 150) => {
     if (text.length <= maxLength) return text
@@ -372,7 +401,7 @@ function ServiceCard({
                 <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground transition-colors flex-1">
-                {service.title}
+                {displayTitle}
               </h3>
             </div>
           </motion.div>
@@ -400,6 +429,8 @@ function ExpandedCard({
   onClose: () => void
 }) {
   const Icon = service.icon
+  const { t } = useLanguage()
+  const displayTitle = service.titleKey ? t(service.titleKey) : service.title
 
   useEffect(() => {
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
@@ -480,7 +511,7 @@ function ExpandedCard({
                 </div>
                 <div className="flex-1 pt-1 pr-10">
                   <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                    {service.title}
+                    {displayTitle}
                   </h2>
                 </div>
               </div>
@@ -507,6 +538,7 @@ export function ServicesDetailed() {
   const [selectedService, setSelectedService] = useState<
     (typeof professionalServices)[0] | (typeof consultingServices)[0] | null
   >(null)
+  const { t } = useLanguage()
 
   return (
     <section id="hizmetler" className="bg-background overflow-x-clip py-16 sm:py-20">
@@ -522,7 +554,7 @@ export function ServicesDetailed() {
           }}
           className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-display text-balance mb-4 text-center"
         >
-          <span className="text-gradient-lime">Hizmetlerimiz</span>
+          <span className="text-gradient-lime">{t("services.title")}</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -531,7 +563,7 @@ export function ServicesDetailed() {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed text-center"
         >
-          Operasyonel mükemmellik ve dijital dönüşüm için uçtan uca çözümler
+          {t("services.subtitle")}
         </motion.p>
       </LampHeader>
 
@@ -546,7 +578,7 @@ export function ServicesDetailed() {
             className="mb-24"
           >
             <h3 className="text-2xl sm:text-3xl font-bold text-muted-foreground/60 mb-12 text-center">
-              Profesyonel Hizmetler
+              {t("services.professional")}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {professionalServices.map((service, index) => (
@@ -570,7 +602,7 @@ export function ServicesDetailed() {
             className="mt-32"
           >
             <h3 className="text-2xl sm:text-3xl font-bold text-muted-foreground/60 mb-12 text-center">
-              Danışmanlık Hizmetleri
+              {t("services.consulting")}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {consultingServices.map((service, index) => (

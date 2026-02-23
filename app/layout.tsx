@@ -4,6 +4,7 @@ import { Geist, } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "@fontsource-variable/zalando-sans-expanded"
 import "./globals.css"
+import { Providers } from "./providers"
 
 const geist = Geist({
   subsets: ["latin"],
@@ -56,7 +57,9 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`dark ${geist.variable}`}>
       <body className="font-sans antialiased min-h-screen">
-        {children}
+        <Providers>
+          {children}
+        </Providers>
         <Analytics />
       </body>
     </html>

@@ -6,29 +6,31 @@ import { motion, useReducedMotion } from "framer-motion"
 import { ContainerTextFlip } from "@/components/ui/container-text-flip"
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
 import { Spotlight } from "@/components/ui/spotlight-new"
-
-const services = [
-  "Yazılım Geliştirme Hizmetleri",
-  "Stratejik ERP Çözümleri Geliştirme",
-  "Özel Yazılım Çözümleri Geliştirme",
-  "Mobil Yazılım Çözümleri Geliştirme",
-  "Büyük Veri ve Analitik Çözümleri",
-  "Veri Çözümleri",
-  "Yapay Zeka Çözümleri",
-  "BI Dashboard Çözümleri",
-  "Danışmanlık Hizmetleri",
-  "Siber Güvenlik",
-  "Bilgi Güvenliği",
-  "BT Yönetim",
-  "İş Sürekliliği",
-  "Süreç Yönetimi",
-  "Altyapı Kurulum ve Yönetimi",
-  "Outsource Destek",
-  "Veri Merkezi Kurulumu ve Yönetimi",
-]
+import { useLanguage } from "@/lib/language-context"
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion()
+  const { t } = useLanguage()
+
+  const services = [
+    t("hero.service.1"),
+    t("hero.service.2"),
+    t("hero.service.3"),
+    t("hero.service.4"),
+    t("hero.service.5"),
+    t("hero.service.6"),
+    t("hero.service.7"),
+    t("hero.service.8"),
+    t("hero.service.9"),
+    t("hero.service.10"),
+    t("hero.service.11"),
+    t("hero.service.12"),
+    t("hero.service.13"),
+    t("hero.service.14"),
+    t("hero.service.15"),
+    t("hero.service.16"),
+    t("hero.service.17"),
+  ]
 
   const fadeUp = {
     initial: { opacity: 0, y: 20 },
@@ -81,9 +83,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-display text-balance mb-8 leading-[1.1]"
           >
-            <span className="text-foreground">Teknoloji ve Dijital Dönüşüm</span>
+            <span className="text-foreground">{t("hero.title1")}</span>
             <br />
-            Ortağınız
+            {t("hero.title2")}
           </motion.h1>
 
           <motion.div
@@ -108,11 +110,10 @@ export function Hero() {
             className="max-w-3xl mx-auto mb-10 px-2 space-y-3"
           >
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground text-pretty leading-relaxed">
-              Biz, sahadaki her bir operasyondan yönetim kurulundaki en kritik rapora kadar kesintisiz, güvenli ve
-              akıllı bir <span className="text-foreground font-medium">Teknoloji Ekosistemi</span> inşa ediyoruz.
+              {t("hero.desc1")} <span className="text-foreground font-medium">{t("hero.techEcosystem")}</span> {t("hero.desc1End")}
             </p>
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground text-pretty leading-relaxed">
-              BBM-Tech ile dijital dönüşüm, bir risk değil; <span className="text-primary font-semibold">ölçülebilir bir başarı hikayesidir</span>.
+              {t("hero.desc2Start")} <span className="text-primary font-semibold">{t("hero.desc2Bold")}</span>{t("hero.desc2End")}
             </p>
           </motion.div>
 
@@ -126,7 +127,7 @@ export function Hero() {
               className="px-6 py-3 font-medium text-base"
               onClick={() => handleScrollTo("#iletisim")}
             >
-              Bize Ulaşın
+              {t("hero.cta")}
               <ArrowRight className="w-4 h-4" />
             </HoverBorderGradient>
           </motion.div>
@@ -143,9 +144,9 @@ export function Hero() {
         <button
           onClick={() => handleScrollTo("#neler-yapiyoruz")}
           className="flex flex-col items-center gap-2 text-muted-foreground/60 hover:text-primary transition-colors group cursor-pointer"
-          aria-label="Aşağı kaydır"
+          aria-label={t("hero.scrollDown")}
         >
-          <span className="text-xs uppercase tracking-widest">Keşfet</span>
+          <span className="text-xs uppercase tracking-widest">{t("hero.discover")}</span>
           <motion.div
             animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

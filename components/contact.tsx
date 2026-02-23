@@ -4,9 +4,11 @@ import { motion, useReducedMotion } from "framer-motion"
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react"
 import { HoverBorderGradient } from "./ui/hover-border-gradient"
 import { LampHeader } from "./ui/lamp"
+import { useLanguage } from "@/lib/language-context"
 
 export function Contact() {
   const shouldReduceMotion = useReducedMotion()
+  const { t } = useLanguage()
 
   return (
     <section id="iletisim" className="bg-card/50 relative overflow-hidden py-16 sm:py-20">
@@ -22,7 +24,7 @@ export function Contact() {
           }}
           className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-display text-balance mb-4 text-center"
         >
-          <span className="text-gradient-lime">Harekete Geçelim</span>
+          <span className="text-gradient-lime">{t("contact.title")}</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -31,7 +33,7 @@ export function Contact() {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed text-center"
         >
-          Çözümlerimizden hangisi şu an kurumunuzun en öncelikli darboğazını çözebilir?
+          {t("contact.subtitle")}
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -40,7 +42,7 @@ export function Contact() {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="text-sm sm:text-base text-muted-foreground/70 max-w-2xl mx-auto mt-2 text-center"
         >
-          İsterseniz bir Yol Haritası Çalıştayı planlayabiliriz.
+          {t("contact.subtitle2")}
         </motion.p>
       </LampHeader>
 
@@ -56,10 +58,9 @@ export function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-semibold text-foreground mb-6">Bize Ulaşın</h3>
+              <h3 className="text-2xl font-semibold text-foreground mb-6">{t("contact.reachUs")}</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Dijital dönüşüm, yazılım geliştirme veya IT danışmanlık ihtiyaçlarınız için ekibimiz size yardımcı olmaya
-                hazır.
+                {t("contact.reachUsDesc")}
               </p>
             </div>
 
@@ -75,7 +76,7 @@ export function Contact() {
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-foreground mb-1 group-hover:text-primary transition-colors">E-posta</h4>
+                  <h4 className="font-medium text-foreground mb-1 group-hover:text-primary transition-colors">{t("contact.email")}</h4>
                   <p className="text-muted-foreground group-hover:text-foreground transition-colors">info@bbm-tech.com.tr</p>
                 </div>
               </motion.div>
@@ -91,7 +92,7 @@ export function Contact() {
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-foreground mb-1 group-hover:text-primary transition-colors">Telefon</h4>
+                  <h4 className="font-medium text-foreground mb-1 group-hover:text-primary transition-colors">{t("contact.phone")}</h4>
                   <p className="text-muted-foreground group-hover:text-foreground transition-colors">+90 (212) 555 00 00</p>
                 </div>
               </motion.div>
@@ -107,11 +108,11 @@ export function Contact() {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-foreground mb-1 group-hover:text-primary transition-colors">Adres</h4>
+                  <h4 className="font-medium text-foreground mb-1 group-hover:text-primary transition-colors">{t("contact.address")}</h4>
                   <p className="text-muted-foreground group-hover:text-foreground transition-colors">
-                    YTÜ Yıldız Teknopark - Davutpaşa Kampüsü
+                    {t("contact.addressLine1")}
                     <br />
-                    Yıldız Teknik Üniversitesi, 34220 Esenler/İstanbul
+                    {t("contact.addressLine2")}
                   </p>
                 </div>
               </motion.div>
@@ -135,7 +136,7 @@ export function Contact() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ofis Konumu - Yıldız Teknik Üniversitesi, Davutpaşa, İstanbul"
+                title={t("contact.mapTitle")}
                 className="grayscale hover:grayscale-0 transition-all duration-700"
               />
             </div>

@@ -1,5 +1,8 @@
+"use client"
+
 import Link from "next/link"
 import { Zap } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 const footerLinks = {
   Hizmetler: [
@@ -16,12 +19,14 @@ const footerLinks = {
 }
 
 export function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer className="relative border-t border-border">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[10px] sm:text-xs text-muted-foreground">
-            &copy; 2025 BBM Tech. Tüm hakları saklıdır.
+            &copy; 2025 BBM Tech. {t("footer.rights")}
           </p>
           <div className="flex items-center gap-4">
             <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
