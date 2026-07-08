@@ -34,21 +34,13 @@ const sectorKeys = [
 const serviceKeys = [
   { key: "whatWeDo.ps.softwareDev", icon: Code2 },
   { key: "whatWeDo.ps.erp", icon: Server },
-  { key: "whatWeDo.ps.customSoftware", icon: Code2 },
   { key: "whatWeDo.ps.mobileSoftware", icon: Smartphone },
   { key: "whatWeDo.ps.bigData", icon: Database },
   { key: "whatWeDo.ps.dataSolutions", icon: Database },
   { key: "whatWeDo.ps.ai", icon: Brain },
   { key: "whatWeDo.ps.biDashboard", icon: BarChart3 },
-  { key: "whatWeDo.ps.consulting", icon: Settings },
-  { key: "whatWeDo.ps.cyberSecurity", icon: Shield },
-  { key: "whatWeDo.ps.infoSecurity", icon: Lock },
-  { key: "whatWeDo.ps.itManagement", icon: Settings },
-  { key: "whatWeDo.ps.businessContinuity", icon: Workflow },
-  { key: "whatWeDo.ps.processManagement", icon: Workflow },
-  { key: "whatWeDo.ps.infrastructure", icon: HardDrive },
+  { key: "whatWeDo.ps.consulting", icon: Shield },
   { key: "whatWeDo.ps.outsource", icon: Settings },
-  { key: "whatWeDo.ps.dataCenter", icon: Building2 },
 ]
 
 export function WhatWeDo() {

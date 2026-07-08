@@ -3,346 +3,128 @@
 import { useState, useEffect } from "react"
 import { motion, useReducedMotion, AnimatePresence, LayoutGroup } from "framer-motion"
 import {
+  Code,
   Server,
+  Smartphone,
+  BarChart3,
   Database,
   Brain,
-  BarChart3,
+  LineChart,
   Shield,
-  Lock,
-  Layers,
-  MapPin,
-  Zap,
-  Cloud,
-  Settings,
+  Users,
   Plus,
   X,
-  Activity,
-  Map,
-  Route,
-  FileText,
-  HardDrive,
-  Network,
-  AlertTriangle,
-  Building2,
-  Thermometer,
-  Cable,
-  MonitorCheck,
 } from "lucide-react"
 import { LampHeader } from "./ui/lamp"
 import { GlowingEffect } from "./ui/glowing-effect"
 import { useLanguage } from "@/lib/language-context"
 
-const professionalServices = [
+const services = [
   {
-    id: "erp",
+    id: "software-solutions",
+    icon: Code,
+    title: "Yazılım Çözümleri",
+    description: `Standart paketlerin yetmediği durumlarda, kurumların iş süreçlerine %100 uyumlu, yüksek performanslı ve güvenli yazılım mimarileri kullanarak özel uygulamalar geliştiriyoruz. Geliştirdiğimiz çözümler; teknik borç bırakmayan, sürdürülebilir kod yapısı, hızlı prototipleme ve pazara çıkış süresini kısaltan temel özellikleriyle ön plana çıkar. Uygulama tasarımımız, kritik sistemlerdeki "sıfır kesinti" ve modülerlik prensibine göre oluşturulur.
+
+Bunun yanı sıra cloud ve/veya on-prem platformlarda geliştirdiğimiz;
+- Web tabanlı, mobil ve masaüstü uygulamalar
+- Kurumsal portal ve API
+- ERP ve CRM entegrasyonları
+
+Güncel geliştirme metodolojileri ve uluslararası standartlar gözetilerek yüksek performans, güvenlik, esneklik ve kullanıcı deneyimi üst noktada tutulur.`,
+    descriptionEn: `When standard software packages are not applicable, our tailor-made solutions which are built on high-performance, secure, and scalable software architectures that align with all kind of business processes. Our solutions are based on sustainability, maintainability code with minimal technical debt, rapid deployment capability and streamlined and fast delivery. Our application architecture is designed with all the principles of zero downtime, high availability, and modularity, ensuring maximum business continuity for mission-critical systems. In addition, we design and deliver cloud-based and/or on-premises solutions, including web-based, mobile, and desktop applications, enterprise portals and API development, and ERP and CRM integrations. Applying modern software development methodologies, each of our solutions provides high performance, robust security, scalability, flexibility, and remarkable user experience.`,
+  },
+  {
+    id: "erp-solutions",
     icon: Server,
-    titleKey: "sd.erp.title",
-    title: "Stratejik ERP Çözümleri Geliştirme",
-    description: `Kurumsal kaynak planlamayı sadece bir kayıt sistemi değil, operasyonel hız kazandıran bir "iş zekası motoru" olarak konumlandırıyoruz. Uçtan Uca Entegrasyonu önemseyerek Saha Operasyonları, Finans, Satın Alma, Depo, Üretim ve İK süreçlerinin tam uyumunu sağlıyoruz.
-
-Müşteri gereksinimleri doğrultusunda çözümümüz de On-Prem, Mobil veya Cloud 'da yönetebilme imkanı sunuyoruz`,
+    title: "Stratejik ERP Çözümleri",
+    description: `Kurumsal kaynak planlamayı sadece bir kayıt sistemi değil, operasyonel hız kazandıran bir "iş zekası motoru" olarak konumlandırıyoruz. Uçtan uca entegrasyon ile Saha Operasyonları, Finans, Satın Alma, Depo, Üretim ve İK süreçlerinin bütünleşik yapıda yönetilmesini sağlayan esnek ve modüler çözüm sunuyoruz.`,
+    descriptionEn: `Our Enterprise Resource Planning (ERP) solution goes beyond traditional record keeping by serving as an intelligent business platform that drives operational excellence and digital transformation. With end-to-end integration across Field Operations, Finance, Procurement, Warehouse Management, Manufacturing, and Human Resources, it enables organizations to streamline processes, improve cross-functional collaboration, and gain real-time visibility into business operations through a flexible, scalable, and modular architecture.`,
   },
   {
-    id: "field-ops",
-    icon: MapPin,
-    titleKey: "sd.fieldOps.title",
-    title: "Operasyon ve Saha Yönetimi",
-    description: `Saha operasyonlarını kağıt formlardan ve manuel veri girişinden kurtarıp; anlık, izlenebilir ve doğrulanabilir bir dijital sürece dönüştürüyoruz. Amacımız, merkezdeki karar vericiler ile sahadaki uygulayıcılar arasında tek bir veri doğrusu oluşturmaktır.
+    id: "mobile-solutions",
+    icon: Smartphone,
+    title: "Mobil Yazılım Çözümleri",
+    description: `Günümüz iş dünyasında operasyonel verimliliği artırmak, müşteri deneyimini mükemmelleştirmek ve pazarda rekabet avantajı sağlamak adına mobil yazılım çözümleri stratejik bir zorunluluk haline gelmiştir. Kurumların dijital ekosistemlerini mobil platformlara entegre etmesi; iş süreçlerinin zaman ve mekandan bağımsız olarak kesintisiz sürdürülmesine olanak tanır.
 
-İş emirlerinin planlanması, saha ekibine atanması ve mobil üzerinden (harita destekli) takibi. Kaynakların (personel/ekipman) vardiya ve görev bazlı görsel çizelgelenmesi. Kritik varlıkların koruyucu (preventive) ve düzeltici (corrective) bakım süreçleri. Sahadaki araçların yakıt, servis ve konum takibi.Sensörlerden gelen verilerin (sıcaklık, basınç, titreşim) doğrudan ERP'ye akışı.
-
-Saha personelinin görev dağılımını, rota optimizasyonunu ve iş tamamlama süreçlerini ERP ile tam entegre yönetiyoruz. Operatörlerin yapacağı işlerin adım adım mobil cihazlarına düşmesi ve checklist'lerin doldurulmasını sağlıyoruz. Tamamlanan işlerin fotoğraf, video veya dijital imza ile ERP sistemine anlık aktarımını sağlıyoruz. Görevlerin nerede ve ne kadar sürede yapıldığının GPS üzerinden yönetiyoruz.
-
-Sahadaki her bir ekipman, yedek parça ve sarf malzemenin yaşam döngüsünü ERP üzerinden takip ediyoruz. QR kod veya RFID taraması ile depodan sahaya çıkan parçanın hangi makineye takıldığının anlık kaydı. Saha ekiplerinin araç stoklarını (Van Stock) mobil uygulama üzerinden yönetmesi ve otomatik ikmal talepleri. Tek bir barkod taraması ile ekipmanın bakım geçmişine ve teknik dokümanlarına sahada erişim.`,
+iOS ve Android teknolojilerinde gerek native kod yazarak işletim sisteminin sunduğu tüm özelliklerden faydalanıyor, gerekse responsive kod yazarak daha az maliyetli çözümler sunuyoruz.`,
+    descriptionEn: `In today's digital economy, mobile technologies have become a fundamental component of business transformation, enabling organizations to improve operational efficiency, enhance customer engagement, and accelerate business performance. We help organizations transform their business operations through secure and intelligent mobile applications, providing seamless access to enterprise systems, data, and services across any device and location. We design and develop scalable mobile applications for both iOS and Android platforms, offering native development to fully leverage platform-specific capabilities and deliver superior performance, as well as cross-platform solutions that reduce development costs and accelerate deployment. By aligning technology with business objectives, we help organizations create intuitive, secure, and high-performing mobile experiences that support their digital transformation journey.`,
   },
   {
-    id: "predictive-maintenance",
-    icon: Activity,
-    titleKey: "sd.predictive.title",
-    title: "Tahminleyici Bakım, Kestirimci Bakım İş Emirleri, Arıza Erken Uyarı Sistemi",
-    description: `Tahminleyici Bakım, Kestirimci Bakım İş Emirleri, Arıza Erken Uyarı Sistemi`,
-  },
-  {
-    id: "asset-visualization",
-    icon: Map,
-    titleKey: "sd.assetViz.title",
-    title: "Varlık Envanterinin Harita Üzerinde Görselleştirilmesi",
-    description: `Sadece "neyin" ve "ne zaman" yapıldığını değil, "nerede" olduğunu ve "çevresel koşulların" etkisini de yönetiyoruz. Harita altlığı, tüm IT/OT ve ERP verilerinin üzerine bindiği ana görsel düzlemdir.
+    id: "big-data-analytics",
+    icon: BarChart3,
+    title: "Büyük Veri ve Analitik Çözümleri",
+    description: `Verinin yalnızca depolanması değil, doğru analiz edilerek stratejik karar süreçlerine dönüştürülmesi günümüz işletmeleri için kritik bir rekabet avantajı sağlar. Büyük Veri ve Analitik Çözümleri, kurumların farklı kaynaklardan elde ettiği yüksek hacimli, hızlı ve çeşitli verileri güvenli, ölçeklenebilir ve entegre bir platform üzerinde yönetmesini sağlayarak iş süreçlerini daha verimli hale getirir.
 
-Tüm varlıklar (Assets), ERP'deki teknik özellikleriyle birlikte harita üzerinde birer katman olarak sunulur; arızalı veya bakım zamanı gelmiş cihazların harita üzerinde farklı renklerle (Isı Haritası - Heatmap) gösterilmesi, şebeke kapsama alanı dışındaki uzak sahalarda, personelin cihazına yüklü çevrimdışı altlıklarla çalışabilmesi sunulur.`,
-  },
-  {
-    id: "field-team-tracking",
-    icon: Route,
-    titleKey: "sd.fieldTeam.title",
-    title: "Dinamik Saha Ekibi İzleme ve Rota Optimizasyonu",
-    description: `Saha ekiplerinin ERP iş emirleri, coğrafi verilerle harmanlanarak en verimli şekilde yönetilir. Personel ve araç lokasyonlarının anlık takibi. Bir arıza bildirimi (Ticket) oluştuğunda, ERP sisteminin coğrafi olarak en yakın ve yetkin ekibi parametrelere bağlı olarak otomatik olarak ataması. Rota Planlama; Trafik durumu, yol kısıtlamaları ve iş önceliğine göre optimize edilmiş sürüş rotalarıyla yakıt ve zaman tasarrufu.
+Modern veri mimarileri, gerçek zamanlı analiz yetenekleri ve gelişmiş raporlama altyapıları ile işletmeler; operasyonel süreçlerini optimize edebilir, müşteri davranışlarını daha iyi anlayabilir, riskleri önceden öngörebilir ve veri odaklı karar alma kültürünü kurumsal yapılarının merkezine taşıyabilir.
 
-Olaya Müdahale Hızı Artırılması, Görsel Raporlamanın sağlabilmesi ve Denetim ve Şeffaflık noktalarında destekleyici faktör olarak harita katmanlarını kullanıyoruz.
-
-BI Ürünümüzle Executive Dashboard sunuyoruz.`,
-  },
-  {
-    id: "custom-software",
-    icon: Zap,
-    titleKey: "sd.customSoftware.title",
-    title: "Özel Yazılım Geliştirme Çözümleri",
-    description: `Standart paketlerin yetmediği durumlarda, işinize tam uyum sağlayan, yüksek performanslı ve güvenli yazılım mimarileri dikkate alarak inşa ediyoruz.
-
-İş süreçlerinize %100 uyumlu, terzi dikimi dijital çözümler. Teknik borç (Technical Debt) bırakmayan, sürdürülebilir kod yapısı. Hızlı prototipleme ve pazara çıkış süresinin (Time-to-Market) kısaltılmasını sağlıyoruz.
-
-Operasyonel Odak: ERP ve Büyük Veri çözümlerimiz, özellikle üretim ve kritik altyapı sektörlerindeki "sıfır kesinti" prensibine göre tasarlanmıştır.
-
-Modülerlik: İster sadece bir ERP modülü, ister tüm veri altyapısının dönüşümü; ihtiyaca göre ölçeklenebilen yapı.`,
+Sunduğumuz çözümler ile veri toplama, veri entegrasyonu, data lakehouse ve veri ambarı tasarımı, ETL/ELT süreçleri, gerçek zamanlı veri işleme, iş zekâsı, gelişmiş analitik, yapay zekâ ve makine öğrenmesi destekli analiz çözümleri kurumların ihtiyaçlarına özel olarak tasarlanır.`,
+    descriptionEn: `In today's data-driven economy, the true value of data lies not only in its storage, but in its ability to generate actionable insights that drive strategic business decisions. Our Big Data & Analytics Solutions enable organizations to collect, integrate, manage, and analyze large volumes of structured and unstructured data through secure, scalable, and unified data platforms. By transforming enterprise data into meaningful business intelligence, organizations can optimize operational performance, better understand customer behavior, mitigate potential risks, and drive innovation through informed decision-making. We build modern data platforms that integrate data engineering, lakehouse and warehouse solutions, ETL/ELT pipelines, real-time processing, business intelligence, advanced analytics, and machine learning—creating a trusted foundation for enterprise-wide decision intelligence.`,
   },
   {
     id: "data-solutions",
     icon: Database,
-    titleKey: "sd.dataSolutions.title",
     title: "Veri Çözümleri",
-    description: `Yapay zekanın başarısı, verinin kalitesine ve erişilebilirliğine bağlıdır. Biz veriyi sadece depolamıyor, bir "Veri Üretim Hattı" kuruyoruz.
+    description: `Yapay zekanın başarısının verinin kalitesine ve erişilebilirliğine bağlı olduğu gerçeğiyle geliştirdiğimiz çözümler veriyi sadece depolamıyor, bir "Veri Üretim Hattı" oluşturuyor.
 
-• Modern Data Lakehouse Mimarisi: ERP'den gelen yapılandırılmış veriler ile IoT/OT sensörlerinden gelen yüksek hızlı (streaming) verileri tek bir potada eritiriz.
-
-• ETL/ELT ve Veri Boru Hatları (Pipelines): Verinin kaynaktan (Saha, ERP, Loglar) temizlenerek, zenginleştirilerek ve anonimleştirilerek (KVKK uyumlu) analitik ortama taşınması.
-
-• Veri Yönetişimi (Data Governance): Verinin "sahibi kim?", "nasıl değişti?" (Lineage) ve "kim erişebilir?" sorularının GRC katmanıyla entegre yönetimi.
-
-• Edge Computing Veri Entegrasyonu: Sahada, veriyi merkeze göndermeden önce uç noktada işleyip sadece anlamlı özetleri (Anomali, kritik eşik vb.) ana merkeze taşıyarak bant genişliği tasarrufu sağlama.`,
+Bu çözümler uygulanırken;
+- Edge Computing Veri Entegrasyonu ile sahada, veri merkeze gönderilmeden önce uç noktada işlenip yalnızca anlamlı özetler (anomali, kritik eşik vb.) ana merkeze taşınır.
+- Modern Data Lakehouse Mimarisi ile tüm veri kaynaklarından gelen veri tek bir havuzda toplanır.
+- ETL/ELT ve Veri Boru Hatları ile veri temizlenir, zenginleştirilir ve anonimleştirilerek analitik ortama taşınır.
+- Veri yönetişimi sayesinde verinin "sahibi kim?", "nasıl değişti?" ve "kim erişebilir?" sorularının GRC katmanıyla entegre edilmesiyle bütünleşik bir yapı sağlanır.`,
+    descriptionEn: `Building successful AI solutions starts with a modern data platform. Our approach manages the complete Data Lifecycle by integrating, processing, governing, and transforming enterprise data into a trusted asset for analytics and intelligent decision-making. Using Edge Computing, valuable information is filtered and processed before reaching central systems, reducing latency and optimizing data flows. Data from multiple sources is consolidated through a modern Data Lakehouse architecture, while ETL/ELT pipelines ensure that information is cleansed, standardized, enriched, and anonymized. Enterprise Data Governance integrated with GRC establishes a unified framework for data ownership, lineage, compliance, and secure access management.`,
   },
   {
-    id: "ai-ml",
+    id: "ai-solutions",
     icon: Brain,
-    titleKey: "sd.aiMl.title",
-    title: "Yapay Zeka (AI) ve Makine Öğrenmesi (ML) Çözümleri",
-    description: `Veriden sadece "ne oldu?" sorusunun değil, "ne olacak?" ve "ne yapmalıyım?" sorularının cevabını alıyoruz.
-
-• Kestirimci Bakım (Predictive Maintenance): Saha operasyonları ve OT katmanından gelen titreşim, sıcaklık ve akım verilerini kullanarak ekipman arızalarını henüz gerçekleşmeden (genelde 48-72 saat önce) %90+ doğrulukla tahmin etme.
-
-• Görüntü İşleme (Computer Vision) ile Saha Denetimi: Saha ekiplerinin kask/yelek (İSG) takıp takmadığının veya kritik vanaların/şalterlerin doğru konumda olup olmadığının kameralar aracılığıyla otomatik denetimi.
-
-• Talep ve Tedarik Tahminleme: ERP verilerini kullanarak, gelecekteki yedek parça ihtiyacını veya enerji tüketimini mevsimsel ve konjonktürel verilerle tahmin edip stok maliyetini düşürme.
-
-• Anomali Tespiti (Siber ve Operasyonel): Normal çalışma rutininden sapan her türlü hareketi (Örn: Bir pompanın farklı ses çıkarması veya bir kullanıcının olağandışı saatte veri çekmesi) anında yakalayan denetimsiz öğrenme modelleri.`,
+    title: "Yapay Zeka Çözümleri",
+    description: `Veriden sadece "ne oldu?" sorusunun değil, "ne olacak?" ve "ne yapmalıyım?" sorularının cevabını alıyoruz. Uyguladığımız çözümlerde veri modelleri ve modern yapay zeka algoritmaları ile; kestirimsel bakım, talep ve tedarik tahminleme, nakit tahminleme, siber ve operasyonel anomali tespiti sağlanırken, görüntü kayıtlarını da işleyerek saha denetimini insansız süreçlerle tasarlıyoruz.`,
+    descriptionEn: `Our intelligent analytics solutions enable organizations to evolve from descriptive reporting to predictive and prescriptive decision-making. Using advanced AI models and modern data science techniques, we help organizations predict equipment failures, forecast demand and cash flow, identify cyber and operational risks before they occur, and automate visual inspection processes through AI-powered image and video analytics.`,
   },
   {
-    id: "bi-dashboard",
-    icon: BarChart3,
-    titleKey: "sd.biDashboard.title",
-    title: "Dashboard ve İş Zekası (BI) Çözümleri",
-    description: `Bu katman, verinin "hikayeleştirildiği" ve karar vericinin eyleme geçmesini sağlayan vitrindir.
+    id: "business-intelligence",
+    icon: LineChart,
+    title: "İş Zekası Çözümleri",
+    description: `Verinin "hikayeleştirildiği" ve karar vericinin eyleme geçmesini sağlayan çözümlerimiz ile;
+- Gerçek Zamanlı Dashboard ile sahadaki anlık durumu, harita altlığıyla entegre şekilde izleme
+- Self-Service BI ile karar vericilerin kimseye ihtiyaç duymadan, sürükle-bırak yöntemiyle kendi raporlarını oluşturma
+- Executive Scorecards ile kurumun ana hedefleri (KPI) ile gerçekleşen rakamların karşılaştırıldığı, sapmaların otomatik olarak "Kırmızı Alarm" olarak tanımlanabilmesi
+- Neden Analizi Yeteneği ile Dashboard üzerindeki bir detaya tıklandığında, sorunun hangi kayıttan kaynaklandığını tespite yönelik derin analiz
 
-• Real-Time Operational Dashboards: Sahadaki anlık durumu, harita altlığıyla entegre şekilde milisaniyelik gecikmeyle izleme. (Örn: "Şu an hangi bölgede verimlilik düşüyor?")
-
-• Self-Service BI: Yöneticilerin yazılımcıya ihtiyaç duymadan, sürükle-bırak yöntemiyle kendi raporlarını (Finansal sağlık, personel performansı vb.) oluşturabilmesi.
-
-• Executive Scorecards (Stratejik Karneler): Kurumun ana hedefleri (KPI) ile gerçekleşen rakamların karşılaştırıldığı, sapmaların otomatik olarak "Kırmızı Alarm" olarak yandığı yönetim panelleri.
-
-• Neden Analizi (Drill-Down) Yeteneği: Dashboard üzerindeki bir grafik hatasına tıklandığında, sorunun hangi sahadaki hangi cihazdan veya hangi ERP kaydından kaynaklandığını bulana kadar derinleşebilme.`,
-  },
-]
-
-const consultingServices = [
-  {
-    id: "info-security",
-    icon: Lock,
-    titleKey: "sd.infoSecurity.title",
-    title: "Bilgi Güvenliği",
-    description: `Bilgi Güvenliği : Ağ Güvenliği, Bulut (Cloud) Güvenliği,Uygulama Güvenliği, Güvenlik Yönetimi, Olay Yönetimi, Problem Yönetimi`,
+kullanıcılara etkin yönetebilme imkanı sağlar.`,
+    descriptionEn: `Our analytics solutions enable organizations to visualize, explore, and act on business data in real time. Interactive dashboards deliver operational visibility through live monitoring and map-based visualizations. Self-Service BI empowers business users to build reports and dashboards independently, while Executive Scorecards provide continuous visibility into strategic performance by comparing KPIs with business objectives. Built-in drill-through and root-cause analysis capabilities allow users to quickly identify the source of operational issues and make data-driven decisions with confidence.`,
   },
   {
-    id: "cybersecurity",
+    id: "consulting-operations",
     icon: Shield,
-    titleKey: "sd.cyberSecurity.title",
-    title: "Kritik Altyapılar için Entegre Siber Güvenlik",
-    description: `Amacımız; güvenliği operasyonlara ek bir yük haline getirmeden, ölçülebilir ve doğrulanabilir hale getirmektir.
-
-IT, Cloud ve OT/ICS ortamlarında görünürlük, tespit, müdahale ve doğrulama fonksiyonlarını tek bir entegre güvenlik mimarisi altında sunuyoruz.
-
-Yaklaşımımız; riskleri erken aşamade görünür kılmak, olaylara hızlı ve kontrollü müdahale etmek ve operasyonel dayanıklılığı sürdürülebilir şekilde artırmak üzerine kuruludur.
-
-Aşağıdaki güvenlik yetkinliklerimiz ile uçtan uca koruma sağlarız.
-
-SIEM / SOAR / UEBA, EDR (Endpoint Detection & Response), NDR (Network Detection & Response), ITDR (Identity Threat Detection & Response), Deception Technologies, Attack Surface Management, Automated Security Validation, OT / ICS Security
-
-Prensiplerimiz:
-• Operasyonel süreklilik ve siber güvenlik birlikte değerlendirilir
-• Görünürlük ve korelasyon tek merkezden sağlanır
-• Önleme ve doğrulama mekanizmaları sürekli işletilir
-• Mevcut altyapılarla uyumlu entegrasyon esas alınır
-
-İhtiyaca göre modüler mimari ile farklı güvenlik katmanları devreye alınır.
-
-Temel Siber Güvenlik Kabiliyetlerimiz :
-
-SIEM / SOAR / UEBA, Merkezi log yönetimi ve olay korelasyonu, Otomasyon ile hızlı ve tutarlı müdahale, Davranış analizi ve anomali tespiti EDR
-
-Uç nokta bazlı tehdit tespiti ve önleme, Davranışsal analiz ve hızlı izolasyon, Düşük gürültü, yüksek doğruluk, NDR
-
-Ağ trafiği analizi ve varlık profilleme, Şifreli trafik analizi, Tehdit avcılığı ve senaryo bazlı tespit
-
-ITDR / Kimlik Güvenliği
-
-Kimlik ve erişim yaşam döngüsü görünürlüğü, Active Directory risk ve zafiyet analizi, Yetki yükseltme ve yanal hareket tespiti Deception
-
-Aldatma tabanlı erken saldırı tespiti, Saldırgan davranışının izlenmesi, Yüksek sinyal kalitesi, düşük yanlış alarm
-
-İç ve dış saldırı yüzeyinin yönetimi, Güvenlik kontrollerinin sürekli doğrulanması, Risklerin ölçülebilir hale getirilmesi, OT / ICS Güvenliği
-
-OT/ICS ortamlarında güvenlik, üretim süreçlerini etkilemeden ve endüstriyel protokollere duyarlı şekilde ele alınır. Pasif izleme ve kesintisiz operasyon prensibi temel alınır.`,
+    title: "Danışmanlık ve Operasyonel Hizmetler",
+    description: `• Kritik Altyapılar için Entegre Siber Güvenlik (SIEM / SOAR / UEBA, EDR, NDR, ITDR, Deception Technologies, Attack Surface Management, Automated Security Validation, OT / ICS Security)
+- BT Hizmet Yönetimi (Servis Masası, Problem Yönetimi, Olay Yönetimi, Değişiklik Yönetimi, Hizmet Seviyesi Taahhüdü)
+- Varlık ve Konfigürasyon Yönetimi (CMDB, ITAM)
+- Altyapı Kurulumu ve Yönetimi (Sunucu ve Depolama Altyapıları, Sanallaştırma, Hiper Bütünleşik Sistemler, Konteyner Yönetimi, Yedekleme ve Felaket Kurtarma, Performans ve Kapasite Yönetimi)
+- Ağ ve Performans İzleme – NOC (7/24 Sistem izleme, Uygulama izleme)
+- Veri Merkezi Kurulumu ve Yönetimi (Veri Merkezi Danışmanlığı ve Mimari Tasarımı, Veri Merkezi Fiziksel Kurulumu, Veri Merkezi Sistemsel ve Çevresel İzleme)`,
+    descriptionEn: `• Integrated Cybersecurity Solutions for Critical Infrastructure (SIEM / SOAR / UEBA, EDR, NDR, ITDR, Deception Technologies, Attack Surface Management, Automated Security Validation, OT / ICS Security)
+- IT Service Management (Service Desk, Incident Management, Problem Management, Change Management, Service Level Management)
+- Asset & Configuration Management (CMDB, ITAM)
+- Infrastructure Deployment & Management (Server & Storage Infrastructure, Virtualization Platforms, HCI, Container Platforms & Orchestration, Backup & Disaster Recovery, Performance & Capacity Management)
+- Network Operations Center (NOC) & Performance Monitoring (24x7 Infrastructure Monitoring, Application Performance Monitoring)
+- Data Center Deployment & Management (Data Center Consulting & Architecture Design, Data Center Infrastructure Deployment, Data Center Systems & Environmental Monitoring)`,
   },
   {
-    id: "itsm",
-    icon: Settings,
-    titleKey: "sd.itsm.title",
-    title: "BT Hizmet Yönetimi (ITSM)",
-    description: `BT Hizmet Yönetimi (ITSM)
-• Service Desk & Incident Management
-• Problem & Change Management
-• SLA (Hizmet Seviyesi Taahhüdü)`,
-  },
-  {
-    id: "infrastructure",
-    icon: HardDrive,
-    titleKey: "sd.infra.title",
-    title: "Altyapı Yönetimi",
-    description: `Altyapı Yönetimi
-• Hibrit Bulut Stratejisi: Kritik verilerin (OT/ICS) yerinde (On-Premise) tutulması, Bulut stratejisinin kurum/şirket politikalarına uygun ölçeklenmesi.
-• Sanallaştırma ve Konteyner Yönetimi: Uygulamaların Docker/Kubernetes mimarisiyle, sunucudan bağımsız, yedekli ve hızlı yayılması.
-• Yedekleme ve Felaket Kurtarma (Backup & DR): Verilerin sadece yedeklenmesi değil, felaket anında (deprem, fidye yazılımı vb.) ne kadar sürede geri dönebileceğinin (RTO/RPO) otomatize edilmesi.`,
-  },
-  {
-    id: "itam-cmdb",
-    icon: FileText,
-    titleKey: "sd.itamCmdb.title",
-    title: "Varlık ve Konfigürasyon Yönetimi (ITAM & CMDB)",
-    description: `Varlık ve Konfigürasyon Yönetimi (ITAM & CMDB)
-
-Hangi cihazın nerede olduğunu, kimin kullandığını ve diğer hangi sistemlerle bağlı olduğunu bilmektir.
-• Dijital Envanter (CMDB)
-• Yaşam Döngüsü Takibi`,
-  },
-  {
-    id: "noc",
-    icon: Network,
-    titleKey: "sd.noc.title",
-    title: "Ağ ve Performans İzleme (NOC - Network Operations Center)",
-    description: `Ağ ve Performans İzleme (NOC - Network Operations Center)
-
-7/24 Sistemlerin nabzının takip edilmesi sağlanır.
-• Görünürlük
-• Bandwidth Yönetimi`,
-  },
-  {
-    id: "business-continuity",
-    icon: Lock,
-    titleKey: "sd.businessCont.title",
-    title: "İş Sürekliliği",
-    description: `İş Sürekliliği
-
-Stratejimiz; ISO 22301 standartlarını temel alarak, teknik kurtarma (DR) ile yönetsel sürekliliği (BC) birleştirmektir`,
-  },
-  {
-    id: "bia",
-    icon: BarChart3,
-    titleKey: "sd.bia.title",
-    title: "İş Etki Analizi (BIA) ve Kritiklik Seviyeleri",
-    description: `İş Etki Analizi (BIA) ve Kritiklik Seviyeleri
-
-Her sistemin duruş maliyeti aynı değildir. Önce sistemleri iş önceliğine göre sınıflandırıyoruz.
-• Maksimum Tolere Edilebilir Kesinti Süresi (MTPD)
-• Bağımlılık Haritalama`,
-  },
-  {
-    id: "disaster-recovery",
-    icon: AlertTriangle,
-    titleKey: "sd.disasterRecovery.title",
-    title: "Felaket Kurtarma (Disaster Recovery - DR) Mimarisi",
-    description: `Felaket Kurtarma (Disaster Recovery - DR) Mimarisi
-• Coğrafi Yedeklilik (Geo-Redundancy)
-• RPO (Veri Kaybı Hedefi) & RTO (Geri Dönüş Süresi Hedefi)
-• Immutable Backups (Değiştirilemez Yedekler)`,
-  },
-  {
-    id: "alt-operations",
-    icon: Settings,
-    titleKey: "sd.altOps.title",
-    title: "Operasyonel ve Sahada Süreklilik (Alternative Operations)",
-    description: `Operasyonel ve Sahada Süreklilik (Alternative Operations)
-
-Teknoloji tamamen erişilemez olduğunda işin sahada nasıl devam edeceğinin planıdır.
-• Manuel Mod Prosedürleri
-• Acil Durum İletişim Planı`,
-  },
-  {
-    id: "crisis-management",
-    icon: AlertTriangle,
-    titleKey: "sd.crisis.title",
-    title: "Kriz Yönetimi ve Playbooklar",
-    description: `Kriz Yönetimi ve Playbooklar
-
-Karar vericilerin panik anında hata yapmasını engelleyen standart operasyon prosedürleridir.
-• Aktivasyon Eşikleri
-• Kriz İletişimi`,
-  },
-  {
-    id: "datacenter",
-    icon: Cloud,
-    titleKey: "sd.dataCenter.title",
-    title: "Kritik Altyapı Veri Merkezi (Data Center) Tasarım ve Kurulumu",
-    description: `Kritik Altyapı Veri Merkezi (Data Center) Tasarım ve Kurulumu
-
-Tasarım felsefemiz, TIA-942 ve Uptime Institute Tier III/IV standartlarını temel alarak; sıfır tek nokta hatası (No Single Point of Failure) ve yüksek enerji verimliliği (PUE) üzerine kuruludur.`,
-  },
-  {
-    id: "physical-security",
-    icon: Building2,
-    titleKey: "sd.physicalSecurity.title",
-    title: "Fiziksel ve Mimari Güvenlik (Structural Layer)",
-    description: `Fiziksel ve Mimari Güvenlik (Structural Layer)
-
-Veri merkezinin konumu ve yapısal özellikleri, siber güvenlik kadar kritiktir.
-• Sismik İzolasyon
-• Yangın Algılama ve Söndürme
-• Fiziksel Erişim Kontrolü`,
-  },
-  {
-    id: "mep",
-    icon: Thermometer,
-    titleKey: "sd.mep.title",
-    title: "Enerji ve İklimlendirme Altyapısı (Mechanical & Electrical)",
-    description: `Enerji ve İklimlendirme Altyapısı (Mechanical & Electrical)
-• Kesintisiz Enerji (UPS & Jeneratör)
-• Hassas Kontrollü İklimlendirme
-• Güç Dağıtım Birimleri (PDU)`,
-  },
-  {
-    id: "connectivity",
-    icon: Cable,
-    titleKey: "sd.connectivity.title",
-    title: "Ağ Bağlantısı ve Yapısal Kablolama (Connectivity Layer)",
-    description: `Ağ Bağlantısı ve Yapısal Kablolama (Connectivity Layer)
-• Birden fazla telekom operatöründen gelen yedekli fiber optik hatlar (F/O Meet-me Room).
-• Kabinetler arası 40G/100G hızlarını destekleyen, hatasız etiketlenmiş ve yapılandırılmış Cat6A/Fiber optik sonlandırmalar.
-• Dış dünya ile iç ağın güvenli ve yedekli şekilde buluştuğu özel ayrıştırılmış alanlar.`,
-  },
-  {
-    id: "dcim",
-    icon: MonitorCheck,
-    titleKey: "sd.dcim.title",
-    title: "Veri Merkezi Altyapı Yönetimi (DCIM)",
-    description: `Veri Merkezi Altyapı Yönetimi (DCIM)
-• Nem, sıcaklık, su baskını ve kapı sensörlerinin harita altlığı ve GRC katmanıyla entegrasyonu.
-• Boş kabinet alanı (U-space), enerji ve soğutma limitlerinin ERP ve BT Yönetimi panellerinden takip edilmesi.`,
-  },
-  {
-    id: "blockchain",
-    icon: Layers,
-    titleKey: "sd.blockchain.title",
-    title: "Blockchain Çözümleri : Güven ve Şeffaflık Mimarlığı",
-    description: `BBM-Tech olarak, merkeziyetsiz teknolojileri işletmenizin veri güvenliği ve izlenebilirlik ihtiyaçlarının merkezine yerleştiriyoruz. Verinin değiştirilemezliğini ve süreçlerin şeffaflığını garanti altına alan blockchain çözümlerimizle; tedarik zinciri takibinden smart kontratlara (zeki sözleşmeler), dijital kimlik yönetiminden güvenli veri paylaşım ekosistemlerine kadar uçtan uca güvenli yapılar inşa ediyoruz.
-
-Standart platformlara bağımlı kalmadan, iş süreçlerinize ve yönetişim ihtiyaçlarınıza göre tasarlanan anahtar teslim özel blockchain ve mutabakat (custom consensus) altyapıları ile, karmaşık operasyonel ağlarınızda "Single Source of Truth" prensibini kriptografik olarak güvence altına alıyor; kurumlar arası iş birliğini sürdürülebilir bir dijital güven protokolüne dönüştürüyoruz.`,
+    id: "outsourcing",
+    icon: Users,
+    title: "Dış Kaynak Desteği",
+    description: `• Yerinde ve Uzaktan BT Destek Hizmetleri
+- Uzman Personel Temini
+- Yönetilen Hizmetler (Managed Services)
+- Proje Bazlı Kaynak Desteği
+- 7/24 Operasyon ve Destek Hizmetleri`,
+    descriptionEn: `• On-site & Remote Support
+- IT Consulting & Resource Provision
+- Infrastructure & Support Services
+- Project-Based Technical Resource Allocation
+- 24×7 Operational Support & Service Management`,
   },
 ]
 
@@ -352,16 +134,17 @@ function ServiceCard({
   onClick,
   isSelected,
 }: {
-  service: (typeof professionalServices)[0] | (typeof consultingServices)[0]
+  service: (typeof services)[0]
   index: number
   onClick: () => void
   isSelected: boolean
 }) {
   const shouldReduceMotion = useReducedMotion()
   const [isHovered, setIsHovered] = useState(false)
-  const { t } = useLanguage()
   const Icon = service.icon
-  const displayTitle = service.titleKey ? t(service.titleKey) : service.title
+  const displayTitle = service.title
+  const { language } = useLanguage()
+  const displayDescription = language === "en" ? service.descriptionEn : service.description
 
   const truncateText = (text: string, maxLength: number = 150) => {
     if (text.length <= maxLength) return text
@@ -407,7 +190,7 @@ function ServiceCard({
           </motion.div>
 
           <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 group-hover:text-white transition-colors flex-1">
-            {truncateText(service.description)}
+            {truncateText(displayDescription)}
           </p>
         </div>
 
@@ -425,12 +208,13 @@ function ExpandedCard({
   service,
   onClose,
 }: {
-  service: (typeof professionalServices)[0] | (typeof consultingServices)[0]
+  service: (typeof services)[0]
   onClose: () => void
 }) {
   const Icon = service.icon
-  const { t } = useLanguage()
-  const displayTitle = service.titleKey ? t(service.titleKey) : service.title
+  const displayTitle = service.title
+  const { language } = useLanguage()
+  const displayDescription = language === "en" ? service.descriptionEn : service.description
 
   useEffect(() => {
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
@@ -525,7 +309,7 @@ function ExpandedCard({
               transition={{ delay: 0.15, duration: 0.3 }}
               className="text-base text-muted-foreground leading-relaxed whitespace-pre-line"
             >
-              {service.description}
+              {displayDescription}
             </motion.div>
           </div>
         </div>
@@ -535,9 +319,7 @@ function ExpandedCard({
 }
 
 export function ServicesDetailed() {
-  const [selectedService, setSelectedService] = useState<
-    (typeof professionalServices)[0] | (typeof consultingServices)[0] | null
-  >(null)
+  const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null)
   const { t } = useLanguage()
 
   return (
@@ -569,43 +351,14 @@ export function ServicesDetailed() {
 
       <LayoutGroup>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Profesyonel Hizmetler */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-24"
           >
-            <h3 className="text-2xl sm:text-3xl font-bold text-muted-foreground/60 mb-12 text-center">
-              {t("services.professional")}
-            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {professionalServices.map((service, index) => (
-                <ServiceCard
-                  key={service.id}
-                  service={service}
-                  index={index}
-                  onClick={() => setSelectedService(service)}
-                  isSelected={selectedService?.id === service.id}
-                />
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Danışmanlık Hizmetleri */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-32"
-          >
-            <h3 className="text-2xl sm:text-3xl font-bold text-muted-foreground/60 mb-12 text-center">
-              {t("services.consulting")}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {consultingServices.map((service, index) => (
+              {services.map((service, index) => (
                 <ServiceCard
                   key={service.id}
                   service={service}

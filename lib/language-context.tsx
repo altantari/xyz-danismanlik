@@ -79,23 +79,16 @@ const translations: Record<Language, Record<string, string>> = {
     "whatWeDo.ctaButton": "Ücretsiz Danışmanlık Alın",
 
     // Professional services names (what-we-do grid)
-    "whatWeDo.ps.softwareDev": "Yazılım Geliştirme Hizmetleri",
-    "whatWeDo.ps.erp": "Stratejik ERP Çözümleri Geliştirme",
-    "whatWeDo.ps.customSoftware": "Özel Yazılım Çözümleri Geliştirme",
-    "whatWeDo.ps.mobileSoftware": "Mobil Yazılım Çözümleri Geliştirme",
+    
+    "whatWeDo.ps.softwareDev": "Yazılım Çözümleri",
+    "whatWeDo.ps.erp": "Stratejik ERP Çözümleri",
+    "whatWeDo.ps.mobileSoftware": "Mobil Yazılım Çözümleri",
     "whatWeDo.ps.bigData": "Büyük Veri ve Analitik Çözümleri",
     "whatWeDo.ps.dataSolutions": "Veri Çözümleri",
     "whatWeDo.ps.ai": "Yapay Zeka Çözümleri",
-    "whatWeDo.ps.biDashboard": "BI Dashboard Çözümleri",
-    "whatWeDo.ps.consulting": "Danışmanlık Hizmetleri",
-    "whatWeDo.ps.cyberSecurity": "Siber Güvenlik",
-    "whatWeDo.ps.infoSecurity": "Bilgi Güvenliği",
-    "whatWeDo.ps.itManagement": "BT Yönetim",
-    "whatWeDo.ps.businessContinuity": "İş Sürekliliği",
-    "whatWeDo.ps.processManagement": "Süreç Yönetimi",
-    "whatWeDo.ps.infrastructure": "Altyapı Kurulum ve Yönetimi",
-    "whatWeDo.ps.outsource": "Outsource Destek",
-    "whatWeDo.ps.dataCenter": "Veri Merkezi Kurulumu ve Yönetimi",
+    "whatWeDo.ps.biDashboard": "İş Zekası Çözümleri",
+    "whatWeDo.ps.consulting": "Danışmanlık ve Operasyonel Hizmetler",
+    "whatWeDo.ps.outsource": "Dış Kaynak Desteği",
 
     // Services Detailed
     "services.title": "Hizmetlerimiz",
