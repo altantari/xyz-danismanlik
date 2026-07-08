@@ -24,6 +24,7 @@ const services = [
     id: "software-solutions",
     icon: Code,
     title: "Yazılım Çözümleri",
+    titleEn: "Software Solutions",
     description: `Standart paketlerin yetmediği durumlarda, kurumların iş süreçlerine %100 uyumlu, yüksek performanslı ve güvenli yazılım mimarileri kullanarak özel uygulamalar geliştiriyoruz. Geliştirdiğimiz çözümler; teknik borç bırakmayan, sürdürülebilir kod yapısı, hızlı prototipleme ve pazara çıkış süresini kısaltan temel özellikleriyle ön plana çıkar. Uygulama tasarımımız, kritik sistemlerdeki "sıfır kesinti" ve modülerlik prensibine göre oluşturulur.
 
 Bunun yanı sıra cloud ve/veya on-prem platformlarda geliştirdiğimiz;
@@ -38,6 +39,7 @@ Güncel geliştirme metodolojileri ve uluslararası standartlar gözetilerek yü
     id: "erp-solutions",
     icon: Server,
     title: "Stratejik ERP Çözümleri",
+    titleEn: "ERP Solutions",
     description: `Kurumsal kaynak planlamayı sadece bir kayıt sistemi değil, operasyonel hız kazandıran bir "iş zekası motoru" olarak konumlandırıyoruz. Uçtan uca entegrasyon ile Saha Operasyonları, Finans, Satın Alma, Depo, Üretim ve İK süreçlerinin bütünleşik yapıda yönetilmesini sağlayan esnek ve modüler çözüm sunuyoruz.`,
     descriptionEn: `Our Enterprise Resource Planning (ERP) solution goes beyond traditional record keeping by serving as an intelligent business platform that drives operational excellence and digital transformation. With end-to-end integration across Field Operations, Finance, Procurement, Warehouse Management, Manufacturing, and Human Resources, it enables organizations to streamline processes, improve cross-functional collaboration, and gain real-time visibility into business operations through a flexible, scalable, and modular architecture.`,
   },
@@ -45,6 +47,7 @@ Güncel geliştirme metodolojileri ve uluslararası standartlar gözetilerek yü
     id: "mobile-solutions",
     icon: Smartphone,
     title: "Mobil Yazılım Çözümleri",
+    titleEn: "Mobile Application Solutions",
     description: `Günümüz iş dünyasında operasyonel verimliliği artırmak, müşteri deneyimini mükemmelleştirmek ve pazarda rekabet avantajı sağlamak adına mobil yazılım çözümleri stratejik bir zorunluluk haline gelmiştir. Kurumların dijital ekosistemlerini mobil platformlara entegre etmesi; iş süreçlerinin zaman ve mekandan bağımsız olarak kesintisiz sürdürülmesine olanak tanır.
 
 iOS ve Android teknolojilerinde gerek native kod yazarak işletim sisteminin sunduğu tüm özelliklerden faydalanıyor, gerekse responsive kod yazarak daha az maliyetli çözümler sunuyoruz.`,
@@ -54,6 +57,7 @@ iOS ve Android teknolojilerinde gerek native kod yazarak işletim sisteminin sun
     id: "big-data-analytics",
     icon: BarChart3,
     title: "Büyük Veri ve Analitik Çözümleri",
+    titleEn: "Big Data & Analytics Solutions",
     description: `Verinin yalnızca depolanması değil, doğru analiz edilerek stratejik karar süreçlerine dönüştürülmesi günümüz işletmeleri için kritik bir rekabet avantajı sağlar. Büyük Veri ve Analitik Çözümleri, kurumların farklı kaynaklardan elde ettiği yüksek hacimli, hızlı ve çeşitli verileri güvenli, ölçeklenebilir ve entegre bir platform üzerinde yönetmesini sağlayarak iş süreçlerini daha verimli hale getirir.
 
 Modern veri mimarileri, gerçek zamanlı analiz yetenekleri ve gelişmiş raporlama altyapıları ile işletmeler; operasyonel süreçlerini optimize edebilir, müşteri davranışlarını daha iyi anlayabilir, riskleri önceden öngörebilir ve veri odaklı karar alma kültürünü kurumsal yapılarının merkezine taşıyabilir.
@@ -65,6 +69,7 @@ Sunduğumuz çözümler ile veri toplama, veri entegrasyonu, data lakehouse ve v
     id: "data-solutions",
     icon: Database,
     title: "Veri Çözümleri",
+    titleEn: "Data Lifecycle Solutions",
     description: `Yapay zekanın başarısının verinin kalitesine ve erişilebilirliğine bağlı olduğu gerçeğiyle geliştirdiğimiz çözümler veriyi sadece depolamıyor, bir "Veri Üretim Hattı" oluşturuyor.
 
 Bu çözümler uygulanırken;
@@ -78,6 +83,7 @@ Bu çözümler uygulanırken;
     id: "ai-solutions",
     icon: Brain,
     title: "Yapay Zeka Çözümleri",
+    titleEn: "Artificial Intelligence Solutions",
     description: `Veriden sadece "ne oldu?" sorusunun değil, "ne olacak?" ve "ne yapmalıyım?" sorularının cevabını alıyoruz. Uyguladığımız çözümlerde veri modelleri ve modern yapay zeka algoritmaları ile; kestirimsel bakım, talep ve tedarik tahminleme, nakit tahminleme, siber ve operasyonel anomali tespiti sağlanırken, görüntü kayıtlarını da işleyerek saha denetimini insansız süreçlerle tasarlıyoruz.`,
     descriptionEn: `Our intelligent analytics solutions enable organizations to evolve from descriptive reporting to predictive and prescriptive decision-making. Using advanced AI models and modern data science techniques, we help organizations predict equipment failures, forecast demand and cash flow, identify cyber and operational risks before they occur, and automate visual inspection processes through AI-powered image and video analytics.`,
   },
@@ -85,6 +91,7 @@ Bu çözümler uygulanırken;
     id: "business-intelligence",
     icon: LineChart,
     title: "İş Zekası Çözümleri",
+    titleEn: "Business Intelligence Solutions",
     description: `Verinin "hikayeleştirildiği" ve karar vericinin eyleme geçmesini sağlayan çözümlerimiz ile;
 - Gerçek Zamanlı Dashboard ile sahadaki anlık durumu, harita altlığıyla entegre şekilde izleme
 - Self-Service BI ile karar vericilerin kimseye ihtiyaç duymadan, sürükle-bırak yöntemiyle kendi raporlarını oluşturma
@@ -98,6 +105,7 @@ kullanıcılara etkin yönetebilme imkanı sağlar.`,
     id: "consulting-operations",
     icon: Shield,
     title: "Danışmanlık ve Operasyonel Hizmetler",
+    titleEn: "Consulting & Managed Services",
     description: `• Kritik Altyapılar için Entegre Siber Güvenlik (SIEM / SOAR / UEBA, EDR, NDR, ITDR, Deception Technologies, Attack Surface Management, Automated Security Validation, OT / ICS Security)
 - BT Hizmet Yönetimi (Servis Masası, Problem Yönetimi, Olay Yönetimi, Değişiklik Yönetimi, Hizmet Seviyesi Taahhüdü)
 - Varlık ve Konfigürasyon Yönetimi (CMDB, ITAM)
@@ -115,6 +123,7 @@ kullanıcılara etkin yönetebilme imkanı sağlar.`,
     id: "outsourcing",
     icon: Users,
     title: "Dış Kaynak Desteği",
+    titleEn: "Outsourcing Services",
     description: `• Yerinde ve Uzaktan BT Destek Hizmetleri
 - Uzman Personel Temini
 - Yönetilen Hizmetler (Managed Services)
@@ -142,8 +151,8 @@ function ServiceCard({
   const shouldReduceMotion = useReducedMotion()
   const [isHovered, setIsHovered] = useState(false)
   const Icon = service.icon
-  const displayTitle = service.title
   const { language } = useLanguage()
+  const displayTitle = language === "en" ? service.titleEn : service.title
   const displayDescription = language === "en" ? service.descriptionEn : service.description
 
   const truncateText = (text: string, maxLength: number = 150) => {
@@ -212,8 +221,8 @@ function ExpandedCard({
   onClose: () => void
 }) {
   const Icon = service.icon
-  const displayTitle = service.title
   const { language } = useLanguage()
+  const displayTitle = language === "en" ? service.titleEn : service.title
   const displayDescription = language === "en" ? service.descriptionEn : service.description
 
   useEffect(() => {
